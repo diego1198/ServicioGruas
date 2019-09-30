@@ -77,19 +77,23 @@ public class CreateOperatorResource {
             con = conec.getConection();
             PreparedStatement ps;
             ResultSet rs;
+            
 
             try {
 
-                ps = con.prepareStatement("INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)\n" + "values(?,?,?,?,?)");
+                ps = con.prepareStatement("INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)\n" + " values (?,?,?,?,?)");
+                
                 ps.setString(1, id);
                 ps.setInt(2, craneManagerId);
                 ps.setString(3, operatorName);
                 ps.setString(4, operatorLastName);
                 ps.setString(5, operatorLicence);
+             
                 rs = ps.executeQuery();
                 ps.execute();
                  
-                 //JOptionPane.showMessageDialog(null, "Persona Registrada");
+                
+                // JOptionPane.showMessageDialog(null, "Persona Registrada");
             } catch (SQLException e) {
                 // JOptionPane.showMessageDialog(null, "Error al hacer la query" + e);
             }
@@ -98,7 +102,8 @@ public class CreateOperatorResource {
         } catch (Exception e) {
             System.out.println(e);
         }
-       return "successful registered operator";
+      // return "successful registered operator";
+       return id;
        
     }
 }
