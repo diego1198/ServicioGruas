@@ -29,7 +29,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Alexis
  */
-@Path("insuredById")
+@Path("clientById")
 public class ClientByIdResource {
 
     @Context
