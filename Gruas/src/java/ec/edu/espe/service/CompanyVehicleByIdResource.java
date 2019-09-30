@@ -8,7 +8,7 @@ package ec.edu.espe.service;
 
 
 import ec.edu.espe.model.Conexion;
-import ec.edu.espe.model.Client;
+import ec.edu.espe.model.CompanyVehicle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,8 +27,8 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Alexis
  */
-@Path("clientById")
-public class ClientByIdResource {
+@Path("companyVehicleById")
+public class CompanyVehicleByIdResource {
 
     @Context
     private UriInfo context;
@@ -36,7 +36,7 @@ public class ClientByIdResource {
     /**
      * Creates a new instance of OperatorByIdResource
      */
-    public ClientByIdResource() {
+    public CompanyVehicleByIdResource() {
     }
 
     /**
@@ -46,10 +46,10 @@ public class ClientByIdResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("{id}")
-    public Client getJson(@PathParam("id")String id) {
-        Client client = new Client();
-        client = getClientId(id);
-        return client;
+    public CompanyVehicle getJson(@PathParam("id")String id) {
+        CompanyVehicle companyVehicle = new CompanyVehicle();
+        companyVehicle = getCompanyVehicleId(id);
+        return companyVehicle;
     }
 
     /**
@@ -58,29 +58,32 @@ public class ClientByIdResource {
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(Client content) {
+    public void putJson(CompanyVehicle content) {
     }
     
-     public Client getClientId(String id){
-        Client client = new Client();
+     public CompanyVehicle getCompanyVehicleId(String id){
+        CompanyVehicle companyVehicle = new CompanyVehicle();
         Conexion conec = new Conexion();
         try{
             Connection con = null;
             con = conec.getConection();
             PreparedStatement ps;
             ResultSet rs;
-            ps = con.prepareStatement("SELECT * from client where cliId = ?");
+            ps = con.prepareStatement("SELECT * from companyvehicle where cvid = ?");
             ps.setString(1, id);
             rs = ps.executeQuery();
             if(rs.next()){
-                client.setClientId(rs.getString(1));
-                client.setClientName(rs.getString(2));
-                client.setClientPhone(rs.getString(3));
+                companyVehicle.setVehicleId(rs.getString(1));
+                companyVehicle.setVehicleModel(rs.getString(2));
+                companyVehicle.setVehicleBrand(rs.getString(3));
+                companyVehicle.setVehicleColor(rs.getString(4));
+                companyVehicle.setVehicleLicensePlate(rs.getString(5));
+                companyVehicle.setVehicleType(rs.getString(6));
             }
             conec.desconectar();
        }catch(Exception e){
            System.out.println(e);
        }
-        return client;
+        return companyVehicle;
     }
 }
