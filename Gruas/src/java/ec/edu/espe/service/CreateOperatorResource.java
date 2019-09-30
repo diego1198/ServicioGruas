@@ -76,6 +76,7 @@ public class CreateOperatorResource {
             Connection con = null;
             con = conec.getConection();
             PreparedStatement ps;
+
             ResultSet rs;
             
 
@@ -83,6 +84,13 @@ public class CreateOperatorResource {
 
                 ps = con.prepareStatement("INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)\n" + " values (?,?,?,?,?)");
                 
+
+
+            String query = "INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)values(?,?,?,?,?)";
+
+            try {
+
+                ps = con.prepareStatement(query);
                 ps.setString(1, id);
                 ps.setInt(2, craneManagerId);
                 ps.setString(3, operatorName);
@@ -94,6 +102,8 @@ public class CreateOperatorResource {
                  
                 
                 // JOptionPane.showMessageDialog(null, "Persona Registrada");
+                ps.executeUpdate();
+                 //JOptionPane.showMessageDialog(null, "Persona Registrada");
             } catch (SQLException e) {
                 // JOptionPane.showMessageDialog(null, "Error al hacer la query" + e);
             }

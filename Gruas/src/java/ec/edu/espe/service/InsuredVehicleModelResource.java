@@ -6,8 +6,13 @@
 package ec.edu.espe.service;
 
 
+import ec.edu.espe.model.Conexion;
 import ec.edu.espe.model.insuredVehicle;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -51,7 +56,75 @@ public class InsuredVehicleModelResource {
         listVehicles = getInsuredVehicleModel(model);
         return listVehicles;
     }
-
+     
+     
+    @Path("{color}")
+     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+     
+     public ArrayList<insuredVehicle> getVehicleColor(String color){
+        Conexion conec = new Conexion();
+        insuredVehicle insuredVehicle = new insuredVehicle();
+        ArrayList<insuredVehicle> lista = new ArrayList<>();
+        try{
+            Connection con = null;
+            con = conec.getConection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = con.prepareStatement("SELECT * from service where ivcolor = ?");
+            ps.setString(1, color);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                insuredVehicle.setInsuredVehicleId(rs.getString(1));
+                insuredVehicle.setInsuredVehicleModel(rs.getString(2));
+                insuredVehicle.setInsuredVehicleBrand(rs.getString(3));
+                insuredVehicle.setInsuredVehicleColor(rs.getString(4));
+  
+                   
+            lista.add(insuredVehicle);
+       }
+       conec.desconectar();
+       }catch(Exception e){
+           System.out.println(e);
+       }
+       return lista;
+     }
+     
+     
+     
+     
+     
+     @Path("{id}")
+     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+     
+     public ArrayList<insuredVehicle> getVehicleId(String id){
+        Conexion conec = new Conexion();
+        insuredVehicle insuredVehicle = new insuredVehicle();
+        ArrayList<insuredVehicle> lista = new ArrayList<>();
+        try{
+            Connection con = null;
+            con = conec.getConection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = con.prepareStatement("SELECT * from service where ivcolor = ?");
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                insuredVehicle.setInsuredVehicleId(rs.getString(1));
+                insuredVehicle.setInsuredVehicleModel(rs.getString(2));
+                insuredVehicle.setInsuredVehicleBrand(rs.getString(3));
+                insuredVehicle.setInsuredVehicleColor(rs.getString(4));
+  
+                   
+            lista.add(insuredVehicle);
+       }
+       conec.desconectar();
+       }catch(Exception e){
+           System.out.println(e);
+       }
+       return lista;
+     }
     
     
     
@@ -67,4 +140,6 @@ public class InsuredVehicleModelResource {
     private ArrayList<insuredVehicle> getInsuredVehicleModel(String model) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 }
