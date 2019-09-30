@@ -11,7 +11,7 @@ import java.util.Set;
  *
  * @author diego
  */
-@javax.ws.rs.ApplicationPath("Gruas")
+@javax.ws.rs.ApplicationPath("GruaWEb")
 public class ApplicationConfig extends javax.ws.rs.core.Application {
 
     @Override
@@ -31,8 +31,6 @@ public class ApplicationConfig extends javax.ws.rs.core.Application {
 
         resources.add(ec.edu.espe.service.InsuredByIdResource.class);
         resources.add(ec.edu.espe.service.OperatorByIdResource.class);
-        resources.add(OperatorByIdResource.class);
-        resources.add(ec.edu.espe.service.InsuredByIdResource.class);
         resources.add(ec.edu.espe.service.ServicioPorIdResource.class);
         resources.add(ec.edu.espe.service.ServicioResource.class);
         resources.add(ec.edu.espe.service.ServicioporPlacaResource.class);

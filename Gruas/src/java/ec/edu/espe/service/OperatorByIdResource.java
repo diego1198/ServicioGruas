@@ -5,8 +5,12 @@
  */
 package ec.edu.espe.service;
 
+import ec.edu.espe.model.Conexion;
 import ec.edu.espe.model.Operator;
 import ec.edu.espe.model.Servicio;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -58,7 +62,31 @@ public class OperatorByIdResource {
     
      public Operator getOperatorId(String id){
         Operator operator = new Operator();
-        
+        Conexion conec = new Conexion();
+        try{
+       Connection con = null;
+       con = conec.getConection();
+       PreparedStatement ps;
+       ResultSet rs;
+       ps = con.prepareStatement("SELECT * from operator where opid = ?");
+       ps.setString(1, id);
+       rs = ps.executeQuery();
+       if(rs.next()){
+       
+       operator.setOperatorId(rs.getString(1));
+       operator.setCraneManagerId(rs.getInt(2));
+       operator.setOperatorName(rs.getString(3));
+       operator.setOperatorLastName(rs.getString(4));
+       operator.setOperatorLicence(rs.getString(5));
+       
+       
+       }else{
+           operator = null;
+       }
+       conec.desconectar();
+       }catch(Exception e){
+           System.out.println(e);
+       }
         return operator;
     }
 }
