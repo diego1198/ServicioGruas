@@ -8,10 +8,7 @@ package ec.edu.espe.service;
 
 
 import ec.edu.espe.model.Conexion;
-import ec.edu.espe.model.Client;
 import ec.edu.espe.model.CompanyVehicle;
-import ec.edu.espe.model.Operator;
-import ec.edu.espe.model.Servicio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -8,10 +8,11 @@ package ec.edu.espe.service;
 
 
 import ec.edu.espe.model.Conexion;
-import ec.edu.espe.model.Client;
+import ec.edu.espe.model.CompanyVehicle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -27,8 +28,8 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Alexis
  */
-@Path("clientById")
-public class ClientByIdResource {
+@Path("companyVehicleByModel")
+public class CompanyVehicleByBrandResource {
 
     @Context
     private UriInfo context;
@@ -36,7 +37,7 @@ public class ClientByIdResource {
     /**
      * Creates a new instance of OperatorByIdResource
      */
-    public ClientByIdResource() {
+    public CompanyVehicleByBrandResource() {
     }
 
     /**
@@ -45,11 +46,11 @@ public class ClientByIdResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("{id}")
-    public Client getJson(@PathParam("id")String id) {
-        Client client = new Client();
-        client = getClientId(id);
-        return client;
+    @Path("{brand}")
+    public ArrayList<CompanyVehicle> getJson(@PathParam("brand")String brand) {
+        ArrayList<CompanyVehicle> listVehicles = new ArrayList<>();
+        listVehicles = getVehicleBrand(brand);
+        return listVehicles;
     }
 
     /**
@@ -58,29 +59,35 @@ public class ClientByIdResource {
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(Client content) {
+    public void putJson(CompanyVehicle content) {
     }
     
-     public Client getClientId(String id){
-        Client client = new Client();
+     public ArrayList<CompanyVehicle> getVehicleBrand(String brand){
         Conexion conec = new Conexion();
+        CompanyVehicle companyVehicle = new CompanyVehicle();
+        ArrayList<CompanyVehicle> lista = new ArrayList<>();
         try{
             Connection con = null;
             con = conec.getConection();
             PreparedStatement ps;
             ResultSet rs;
-            ps = con.prepareStatement("SELECT * from client where cliId = ?");
-            ps.setString(1, id);
+            ps = con.prepareStatement("SELECT * from service where cvbrand = ?");
+            ps.setString(1, brand);
             rs = ps.executeQuery();
-            if(rs.next()){
-                client.setClientId(rs.getString(1));
-                client.setClientName(rs.getString(2));
-                client.setClientPhone(rs.getString(3));
-            }
-            conec.desconectar();
+            while(rs.next()){
+                companyVehicle.setVehicleId(rs.getString(1));
+                companyVehicle.setVehicleModel(rs.getString(2));
+                companyVehicle.setVehicleBrand(rs.getString(3));
+                companyVehicle.setVehicleColor(rs.getString(4));
+                companyVehicle.setVehicleLicensePlate(rs.getString(5));
+                companyVehicle.setVehicleType(rs.getString(6));
+       
+            lista.add(companyVehicle);
+       }
+       conec.desconectar();
        }catch(Exception e){
            System.out.println(e);
        }
-        return client;
-    }
+       return lista;
+     }
 }
