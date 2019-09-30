@@ -89,6 +89,42 @@ public class InsuredVehicleModelResource {
        }
        return lista;
      }
+     
+     
+     
+     
+     
+     @Path("{id}")
+     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+     
+     public ArrayList<insuredVehicle> getVehicleId(String id){
+        Conexion conec = new Conexion();
+        insuredVehicle insuredVehicle = new insuredVehicle();
+        ArrayList<insuredVehicle> lista = new ArrayList<>();
+        try{
+            Connection con = null;
+            con = conec.getConection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = con.prepareStatement("SELECT * from service where ivcolor = ?");
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                insuredVehicle.setInsuredVehicleId(rs.getString(1));
+                insuredVehicle.setInsuredVehicleModel(rs.getString(2));
+                insuredVehicle.setInsuredVehicleBrand(rs.getString(3));
+                insuredVehicle.setInsuredVehicleColor(rs.getString(4));
+  
+                   
+            lista.add(insuredVehicle);
+       }
+       conec.desconectar();
+       }catch(Exception e){
+           System.out.println(e);
+       }
+       return lista;
+     }
     
     
     
