@@ -31,6 +31,7 @@ public class ApplicationConfig extends javax.ws.rs.core.Application {
 
         resources.add(ec.edu.espe.service.ClientByIdResource.class);
         resources.add(ec.edu.espe.service.OperatorByIdResource.class);
+        resources.add(ec.edu.espe.service.ReportByCustomerIdResource.class);
         resources.add(ec.edu.espe.service.ServicioPorIdResource.class);
         resources.add(ec.edu.espe.service.ServicioResource.class);
         resources.add(ec.edu.espe.service.ServicioporPlacaResource.class);
