@@ -49,8 +49,8 @@ public class CreateOperatorResource {
     @Produces(MediaType.TEXT_PLAIN)
 
     @Path("{operatorId}/{craneManagerId}/{operatorName}/{operatorLastName}/{operatorLicence}")
-    public String getText(@PathParam("operatorId") String id,@PathParam("craneManagerId") int craneManagerId,
-            @PathParam("operatorName") String operatorName,@PathParam("operatorLastName") String operatorLastName,
+    public String getText(@PathParam("operatorId") String id, @PathParam("craneManagerId") int craneManagerId,
+            @PathParam("operatorName") String operatorName, @PathParam("operatorLastName") String operatorLastName,
             @PathParam("operatorLicence") String operatorLicence) {
 
         String respuesta = setOperatorId(id, craneManagerId, operatorName, operatorLastName, operatorLicence);
@@ -69,7 +69,6 @@ public class CreateOperatorResource {
 
     public String setOperatorId(String id, int craneManagerId, String operatorName,
             String operatorLastName, String operatorLicence) {
-        
 
         Conexion conec = new Conexion();
         try {
@@ -78,42 +77,42 @@ public class CreateOperatorResource {
             PreparedStatement ps;
 
             ResultSet rs;
-            
 
             try {
 
                 ps = con.prepareStatement("INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)\n" + " values (?,?,?,?,?)");
-                
 
+                String query = "INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)values(?,?,?,?,?)";
 
-            String query = "INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)values(?,?,?,?,?)";
+                try {
 
-            try {
+                    ps = con.prepareStatement(query);
+                    ps.setString(1, id);
+                    ps.setInt(2, craneManagerId);
+                    ps.setString(3, operatorName);
+                    ps.setString(4, operatorLastName);
+                    ps.setString(5, operatorLicence);
 
-                ps = con.prepareStatement(query);
-                ps.setString(1, id);
-                ps.setInt(2, craneManagerId);
-                ps.setString(3, operatorName);
-                ps.setString(4, operatorLastName);
-                ps.setString(5, operatorLicence);
-             
-                rs = ps.executeQuery();
-                ps.execute();
-                 
-                
-                // JOptionPane.showMessageDialog(null, "Persona Registrada");
-                ps.executeUpdate();
-                 //JOptionPane.showMessageDialog(null, "Persona Registrada");
-            } catch (SQLException e) {
-                // JOptionPane.showMessageDialog(null, "Error al hacer la query" + e);
+                    rs = ps.executeQuery();
+                    ps.execute();
+
+                    // JOptionPane.showMessageDialog(null, "Persona Registrada");
+                    ps.executeUpdate();
+                    //JOptionPane.showMessageDialog(null, "Persona Registrada");
+                } catch (SQLException e) {
+                    // JOptionPane.showMessageDialog(null, "Error al hacer la query" + e);
+                }
+                conec.desconectar();
+            } catch (Exception e) {
+                System.out.println(e);
             }
 
-            conec.desconectar();
+            // return "successful registered operator";
         } catch (Exception e) {
             System.out.println(e);
         }
-      // return "successful registered operator";
-       return id;
-       
+
+        return id;
+
     }
 }
