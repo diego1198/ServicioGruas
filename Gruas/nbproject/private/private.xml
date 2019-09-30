@@ -3,14 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/model/CompanyVehicle.java</file>
-            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/service/OperatorByIdResource.java</file>
-            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/service/CompanyVehicleByIdResource.java</file>
-            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/service/ClientByIdResource.java</file>
-            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/service/ServicioResource.java</file>
-            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/service/ServicioPorIdResource.java</file>
-            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/service/ServicioporPlacaResource.java</file>
-            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/model/Client.java</file>
+            <file>file:/C:/Users/henry/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/service/CreateOperatorResource.java</file>
+            <file>file:/C:/Users/henry/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/service/OperatorByIdResource.java</file>
         </group>
     </open-files>
 </project-private>
