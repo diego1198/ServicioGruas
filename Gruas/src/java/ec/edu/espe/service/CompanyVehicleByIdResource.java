@@ -27,7 +27,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Alexis
  */
-@Path("companyVehicleById")
+@Path("companyVehicleByColor")
 public class CompanyVehicleByIdResource {
 
     @Context
@@ -45,10 +45,10 @@ public class CompanyVehicleByIdResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("{id}")
-    public CompanyVehicle getJson(@PathParam("id")String id) {
+    @Path("{color}")
+    public CompanyVehicle getJson(@PathParam("color")String color) {
         CompanyVehicle companyVehicle = new CompanyVehicle();
-        companyVehicle = getCompanyVehicleId(id);
+        companyVehicle = getCompanyVehicleId(color);
         return companyVehicle;
     }
 
@@ -61,7 +61,7 @@ public class CompanyVehicleByIdResource {
     public void putJson(CompanyVehicle content) {
     }
     
-     public CompanyVehicle getCompanyVehicleId(String id){
+     public CompanyVehicle getCompanyVehicleId(String color){
         CompanyVehicle companyVehicle = new CompanyVehicle();
         Conexion conec = new Conexion();
         try{
@@ -69,8 +69,8 @@ public class CompanyVehicleByIdResource {
             con = conec.getConection();
             PreparedStatement ps;
             ResultSet rs;
-            ps = con.prepareStatement("SELECT * from companyvehicle where cvid = ?");
-            ps.setString(1, id);
+            ps = con.prepareStatement("SELECT * from companyvehicle where cvcolor = ?");
+            ps.setString(1, color);
             rs = ps.executeQuery();
             if(rs.next()){
                 companyVehicle.setVehicleId(rs.getInt(1));
