@@ -18,6 +18,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 
 /**
  * REST Web Service
@@ -47,6 +48,16 @@ public class ServicioResource {
         ArrayList<Servicio> listaServicios = new ArrayList<>();
         listaServicios = getAll();
         return listaServicios;
+    }
+    
+    @GET
+    @Produces(javax.ws.rs.core.MediaType.TEXT_PLAIN)
+    @Path("total")
+    public String getTotal(){
+        String resultado = "";
+        resultado = String.valueOf(getValorTotal());
+        return resultado;
+    
     }
 
     /**
@@ -89,5 +100,26 @@ public class ServicioResource {
        }
        
        return lista;
+    }
+    
+    public int getValorTotal(){
+        Conexion conec = new Conexion();
+        int total=0;
+        try{
+        Connection con = null;
+       con = conec.getConection();
+       PreparedStatement ps;
+       ResultSet rs;
+       ps = con.prepareStatement("select sum(servcost) from service");
+       rs = ps.executeQuery();
+       if(rs.next()){
+           total = rs.getInt(1);
+       }else{
+           total=0;
+       }
+        }catch(Exception e){
+            System.err.print(e);
+        }
+        return total;
     }
 }
