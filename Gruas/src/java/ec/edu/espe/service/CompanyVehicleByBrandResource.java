@@ -28,7 +28,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Alexis
  */
-@Path("companyVehicleByModel")
+@Path("companyVehicleByBrand")
 public class CompanyVehicleByBrandResource {
 
     @Context
