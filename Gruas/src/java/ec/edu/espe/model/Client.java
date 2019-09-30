@@ -12,9 +12,9 @@ package ec.edu.espe.model;
 public class Client {
     private String clientId;
     private String clientName;
-    private String clientPhone;
+    private int clientPhone;
 
-    public Client(String clientId, String clientName, String clientPhone) {
+    public Client(String clientId, String clientName, int clientPhone) {
         this.clientId = clientId;
         this.clientName = clientName;
         this.clientPhone = clientPhone;
@@ -55,18 +55,15 @@ public class Client {
     /**
      * @return the clientPhone
      */
-    public String getClientPhone() {
+    public int getClientPhone() {
         return clientPhone;
     }
 
     /**
      * @param clientPhone the clientPhone to set
      */
-    public void setClientPhone(String clientPhone) {
+    public void setClientPhone(int clientPhone) {
         this.clientPhone = clientPhone;
-    }
-
-   
-    
+    }   
     
 }

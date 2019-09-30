@@ -75,7 +75,7 @@ public class ClientByIdResource {
             if(rs.next()){
                 client.setClientId(rs.getString(1));
                 client.setClientName(rs.getString(2));
-                client.setClientPhone(rs.getString(3));
+                client.setClientPhone(rs.getInt(3));
             }
             conec.desconectar();
        }catch(Exception e){

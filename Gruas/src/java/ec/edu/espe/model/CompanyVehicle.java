@@ -11,13 +11,13 @@ package ec.edu.espe.model;
  */
 public class CompanyVehicle {
     private String vehicleLicensePlate;
-    private String vehicleId;
+    private int vehicleId;
     private String vehicleModel;
     private String vehicleBrand;
     private String vehicleColor;
     private String vehicleType;
 
-    public CompanyVehicle(String vehicleLicensePlate, String vehicleId, String vehicleModel, String vehicleBrand, String vehicleColor, String vehicleType) {
+    public CompanyVehicle(String vehicleLicensePlate, int vehicleId, String vehicleModel, String vehicleBrand, String vehicleColor, String vehicleType) {
         this.vehicleLicensePlate = vehicleLicensePlate;
         this.vehicleId = vehicleId;
         this.vehicleModel = vehicleModel;
@@ -46,14 +46,14 @@ public class CompanyVehicle {
     /**
      * @return the vehicleId
      */
-    public String getVehicleId() {
+    public int getVehicleId() {
         return vehicleId;
     }
 
     /**
      * @param vehicleId the vehicleId to set
      */
-    public void setVehicleId(String vehicleId) {
+    public void setVehicleId(int vehicleId) {
         this.vehicleId = vehicleId;
     }
 

@@ -73,7 +73,7 @@ public class CompanyVehicleByIdResource {
             ps.setString(1, id);
             rs = ps.executeQuery();
             if(rs.next()){
-                companyVehicle.setVehicleId(rs.getString(1));
+                companyVehicle.setVehicleId(rs.getInt(1));
                 companyVehicle.setVehicleModel(rs.getString(2));
                 companyVehicle.setVehicleBrand(rs.getString(3));
                 companyVehicle.setVehicleColor(rs.getString(4));

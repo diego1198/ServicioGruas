@@ -75,7 +75,7 @@ public class CompanyVehicleByBrandResource {
             ps.setString(1, brand);
             rs = ps.executeQuery();
             while(rs.next()){
-                companyVehicle.setVehicleId(rs.getString(1));
+                companyVehicle.setVehicleId(rs.getInt(1));
                 companyVehicle.setVehicleModel(rs.getString(2));
                 companyVehicle.setVehicleBrand(rs.getString(3));
                 companyVehicle.setVehicleColor(rs.getString(4));
