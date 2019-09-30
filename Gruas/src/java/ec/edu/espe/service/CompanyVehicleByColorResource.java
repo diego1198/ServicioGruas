@@ -28,7 +28,7 @@ import javax.ws.rs.core.MediaType;
  * @author Alexis
  */
 @Path("companyVehicleByColor")
-public class CompanyVehicleByIdResource {
+public class CompanyVehicleByColorResource {
 
     @Context
     private UriInfo context;
@@ -36,7 +36,7 @@ public class CompanyVehicleByIdResource {
     /**
      * Creates a new instance of OperatorByIdResource
      */
-    public CompanyVehicleByIdResource() {
+    public CompanyVehicleByColorResource() {
     }
 
     /**
