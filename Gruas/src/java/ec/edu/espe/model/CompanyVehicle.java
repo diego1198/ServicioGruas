@@ -9,22 +9,24 @@ package ec.edu.espe.model;
  *
  * @author Alexis
  */
-public class insuredVehicle {
+public class CompanyVehicle {
     private String vehicleLicensePlate;
     private String vehicleId;
     private String vehicleModel;
     private String vehicleBrand;
     private String vehicleColor;
+    private String vehicleType;
 
-    public insuredVehicle(String vehicleLicensePlate, String vehicleId, String vehicleModel, String vehicleBrand, String vehicleColor) {
+    public CompanyVehicle(String vehicleLicensePlate, String vehicleId, String vehicleModel, String vehicleBrand, String vehicleColor, String vehicleType) {
         this.vehicleLicensePlate = vehicleLicensePlate;
         this.vehicleId = vehicleId;
         this.vehicleModel = vehicleModel;
         this.vehicleBrand = vehicleBrand;
         this.vehicleColor = vehicleColor;
+        this.vehicleType = vehicleType;
     }
 
-    public insuredVehicle() {
+    public CompanyVehicle() {
     }
     
     /**
@@ -95,6 +97,20 @@ public class insuredVehicle {
      */
     public void setVehicleColor(String vehicleColor) {
         this.vehicleColor = vehicleColor;
+    }
+
+    /**
+     * @return the vehicleType
+     */
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    /**
+     * @param vehicleType the vehicleType to set
+     */
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
     }
     
     

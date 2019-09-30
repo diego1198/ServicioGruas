@@ -7,9 +7,13 @@ package ec.edu.espe.service;
  */
 
 
-import ec.edu.espe.model.Insured;
+import ec.edu.espe.model.Conexion;
+import ec.edu.espe.model.Client;
 import ec.edu.espe.model.Operator;
 import ec.edu.espe.model.Servicio;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -26,7 +30,7 @@ import javax.ws.rs.core.MediaType;
  * @author Alexis
  */
 @Path("insuredById")
-public class InsuredByIdResource {
+public class ClientByIdResource {
 
     @Context
     private UriInfo context;
@@ -34,7 +38,7 @@ public class InsuredByIdResource {
     /**
      * Creates a new instance of OperatorByIdResource
      */
-    public InsuredByIdResource() {
+    public ClientByIdResource() {
     }
 
     /**
@@ -44,10 +48,10 @@ public class InsuredByIdResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("{id}")
-    public Insured getJson(@PathParam("id")String id) {
-        Insured insured = new Insured();
-        insured = getInsuredId(id);
-        return insured;
+    public Client getJson(@PathParam("id")String id) {
+        Client client = new Client();
+        client = getClientId(id);
+        return client;
     }
 
     /**
@@ -56,12 +60,29 @@ public class InsuredByIdResource {
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(Operator content) {
+    public void putJson(Client content) {
     }
     
-     public Insured getInsuredId(String id){
-        Insured insured = new Insured();
-        
-        return insured;
+     public Client getClientId(String id){
+        Client client = new Client();
+        Conexion conec = new Conexion();
+        try{
+            Connection con = null;
+            con = conec.getConection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = con.prepareStatement("SELECT * from client where cliId = ?");
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                client.setClientId(rs.getString(1));
+                client.setClientName(rs.getString(2));
+                client.setClientPhone(rs.getString(3));
+            }
+            conec.desconectar();
+       }catch(Exception e){
+           System.out.println(e);
+       }
+        return client;
     }
 }
