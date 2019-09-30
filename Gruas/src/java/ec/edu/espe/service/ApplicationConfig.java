@@ -28,6 +28,7 @@ public class ApplicationConfig extends javax.ws.rs.core.Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(OperatorByIdResource.class);
         resources.add(ec.edu.espe.service.ServicioPorIdResource.class);
         resources.add(ec.edu.espe.service.ServicioResource.class);
         resources.add(ec.edu.espe.service.ServicioporPlacaResource.class);
