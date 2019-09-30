@@ -7,7 +7,7 @@ package ec.edu.espe.service;
 
 import ec.edu.espe.model.Conexion;
 import ec.edu.espe.model.Operator;
-import ec.edu.espe.model.Servicio;
+import ec.edu.espe.model.Report;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,69 +26,67 @@ import javax.ws.rs.core.MediaType;
  *
  * @author henry
  */
-@Path("operatorById")
-public class OperatorByIdResource {
+@Path("ReportByCustomerId")
+public class ReportByCustomerIdResource {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of OperatorByIdResource
+     * Creates a new instance of ReportByCustomerIdResource
      */
-    public OperatorByIdResource() {
+    public ReportByCustomerIdResource() {
     }
 
     /**
-     * Retrieves representation of an instance of
-     * ec.edu.espe.service.OperatorByIdResource
-     *
-     * @return an instance of ec.edu.espe.model.Operator
+     * Retrieves representation of an instance of ec.edu.espe.service.ReportByCustomerIdResource
+     * @return an instance of ec.edu.espe.model.Report
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("{id}")
-    public Operator getJson(@PathParam("id") String id) {
-        Operator operator = new Operator();
-        operator = getOperatorId(id);
-        return operator;
+     @Path("{customerId}")
+    public Report getJson(@PathParam("customerId")String id) {
+        Report report = new Report();
+        report = getReportId(id);
+        return report;
     }
 
     /**
-     * PUT method for updating or creating an instance of OperatorByIdResource
-     *
+     * PUT method for updating or creating an instance of ReportByCustomerIdResource
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(Operator content) {
+    public void putJson(Report content) {
     }
-
-    public Operator getOperatorId(String id) {
-        Operator operator = new Operator();
+    
+    
+    public Report getReportId(String id) {
+        Report report = new Report();
         Conexion conec = new Conexion();
         try {
             Connection con = null;
             con = conec.getConection();
             PreparedStatement ps;
             ResultSet rs;
-            ps = con.prepareStatement("SELECT * from operator where opid = ?");
+            ps = con.prepareStatement("SELECT * from report where cliId = ?");
             ps.setString(1, id);
             rs = ps.executeQuery();
             if (rs.next()) {
 
-                operator.setOperatorId(rs.getString(1));
-                operator.setCraneManagerId(rs.getInt(2));
-                operator.setOperatorName(rs.getString(3));
-                operator.setOperatorLastName(rs.getString(4));
-                operator.setOperatorLicence(rs.getString(5));
+                report.setReportId(rs.getInt(1));
+                report.setClientId(rs.getString(2));
+                report.setServiceId(rs.getString(3));
+                report.setOperatorId(rs.getString(4));
+            
 
             } else {
-                operator = null;
+                report = null;
             }
             conec.desconectar();
         } catch (Exception e) {
             System.out.println(e);
         }
-        return operator;
+        return report;
     }
 }
