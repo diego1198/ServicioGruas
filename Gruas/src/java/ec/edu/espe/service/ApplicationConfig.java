@@ -11,7 +11,7 @@ import java.util.Set;
  *
  * @author diego
  */
-@javax.ws.rs.ApplicationPath("GruaWEb")
+@javax.ws.rs.ApplicationPath("RestFul")
 public class ApplicationConfig extends javax.ws.rs.core.Application {
 
     @Override
@@ -33,12 +33,14 @@ public class ApplicationConfig extends javax.ws.rs.core.Application {
         resources.add(ec.edu.espe.service.CompanyVehicleByBrandResource.class);
         resources.add(ec.edu.espe.service.CompanyVehicleByIdResource.class);
         resources.add(ec.edu.espe.service.CreateOperatorResource.class);
+        resources.add(ec.edu.espe.service.DeleteOperatorResource.class);
         resources.add(ec.edu.espe.service.InsuredVehicleModelResource.class);
+        resources.add(ec.edu.espe.service.NumberOperatorLicenseResource.class);
         resources.add(ec.edu.espe.service.OperatorByIdResource.class);
         resources.add(ec.edu.espe.service.ReportByCustomerIdResource.class);
         resources.add(ec.edu.espe.service.ServicioPorIdResource.class);
         resources.add(ec.edu.espe.service.ServicioResource.class);
         resources.add(ec.edu.espe.service.ServicioporPlacaResource.class);
-        resources.add(ec.edu.espe.service.UpgradeOperatorLicenseOperatorIdResource.class);
+        resources.add(ec.edu.espe.service.UpdateLicenseByidResource.class);
     }
 }

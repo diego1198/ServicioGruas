@@ -17,6 +17,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
@@ -30,6 +31,7 @@ import javax.ws.rs.core.MediaType;
 @Path("createOperator")
 public class CreateOperatorResource {
 
+   
     @Context
     private UriInfo context;
 
@@ -41,20 +43,46 @@ public class CreateOperatorResource {
 
     /**
      * Retrieves representation of an instance of
-     * ec.edu.espe.service.CreateOperatorResource
+     * ec.edu.espe.gruasService.service.CreateOperatorResource
      *
-     * @return an instance of ec.edu.espe.model.Operator
+     * @return an instance of ec.edu.espe.gruasService.model.Operator
      */
+  
+
     @GET
+    @Path("{operatorId}/{craneManager}/{operatorName}/{operatorLastName}/{operatorLicense}")
     @Produces(MediaType.TEXT_PLAIN)
 
-    @Path("{operatorId}/{craneManagerId}/{operatorName}/{operatorLastName}/{operatorLicence}")
-    public String getText(@PathParam("operatorId") String id, @PathParam("craneManagerId") int craneManagerId,
-            @PathParam("operatorName") String operatorName, @PathParam("operatorLastName") String operatorLastName,
-            @PathParam("operatorLicence") String operatorLicence) {
+    public String setOperator(@PathParam("operatorId") String id, @PathParam("craneManager") int cmanager,
+            @PathParam("operatorName") String name, @PathParam("operatorLastName") String lastName,
+            @PathParam("operatorLicense") String license) {
 
-        String respuesta = setOperatorId(id, craneManagerId, operatorName, operatorLastName, operatorLicence);
-        return respuesta;
+        return setOperatorId(new Operator(id, cmanager, name, lastName, license));
+    }
+
+    
+    public String setOperatorId(Operator operator) {
+
+        Conexion conec = new Conexion();
+        try {
+
+            Connection con = null;
+            con = conec.getConection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = con.prepareStatement("INSERT INTO operator values(?,?,?,?,?)");
+            ps.setString(1, operator.getOperatorId());
+            ps.setInt(2, operator.getCraneManagerId());
+            ps.setString(3, operator.getOperatorName());
+            ps.setString(4, operator.getOperatorLastName());
+            ps.setString(5, operator.getOperatorLicence());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        conec.desconectar();
+        return "registered operator";
     }
 
     /**
@@ -62,57 +90,9 @@ public class CreateOperatorResource {
      *
      * @param content representation for the resource
      */
-    @PUT
-    @Consumes(MediaType.TEXT_PLAIN)
-    public void putText(Operator content) {
-    }
-
-    public String setOperatorId(String id, int craneManagerId, String operatorName,
-            String operatorLastName, String operatorLicence) {
-
-        Conexion conec = new Conexion();
-        try {
-            Connection con = null;
-            con = conec.getConection();
-            PreparedStatement ps;
-
-            ResultSet rs;
-
-            try {
-
-                ps = con.prepareStatement("INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)\n" + " values (?,?,?,?,?)");
-
-                String query = "INSERT INTO operator(opid,cmid,opname,oplastname,oplicence)values(?,?,?,?,?)";
-
-                try {
-
-                    ps = con.prepareStatement(query);
-                    ps.setString(1, id);
-                    ps.setInt(2, craneManagerId);
-                    ps.setString(3, operatorName);
-                    ps.setString(4, operatorLastName);
-                    ps.setString(5, operatorLicence);
-
-                    rs = ps.executeQuery();
-                    ps.execute();
-
-                    // JOptionPane.showMessageDialog(null, "Persona Registrada");
-                    ps.executeUpdate();
-                    //JOptionPane.showMessageDialog(null, "Persona Registrada");
-                } catch (SQLException e) {
-                    // JOptionPane.showMessageDialog(null, "Error al hacer la query" + e);
-                }
-                conec.desconectar();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-            // return "successful registered operator";
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        return id;
-
+   @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String putText(Operator operator) {
+        return setOperatorId(new Operator(operator.getOperatorId(), operator.getCraneManagerId(), operator.getOperatorName(),operator.getOperatorLastName(),operator.getOperatorLicence()));
     }
 }
