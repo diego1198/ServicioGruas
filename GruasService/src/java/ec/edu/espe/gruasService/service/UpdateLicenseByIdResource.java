@@ -65,7 +65,7 @@ public class UpdateLicenseByIdResource {
             ps = con.prepareStatement("UPDATE `operator` SET `oplicense`=? WHERE opid=?");
          
             ps.setString(1, operator.getOperatorLicense());
-            ps.setString(2,operator.getOperatorId() );
+            ps.setString(2, operator.getOperatorId());
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);

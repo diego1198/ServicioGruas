@@ -7,6 +7,7 @@ package ec.edu.espe.gruasService.service;
 
 import ec.edu.espe.gruasService.model.DBConnect;
 import ec.edu.espe.gruasService.model.Service;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,6 +64,13 @@ public class ServiceResource {
     }
     
     @GET
+    @Path("maxId")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String byId(){
+        return getMaxId();
+    }
+    
+    @GET
     @Path("total/{from}/{to}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getTotal(@PathParam("from") String from,@PathParam("to") String to){
@@ -78,6 +86,13 @@ public class ServiceResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(Service content) {
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String postJson(Service content){
+        return setService(content);
     }
     
     
@@ -134,5 +149,60 @@ public class ServiceResource {
             Logger.getLogger(ServiceResource.class.getName()).log(Level.SEVERE, null, ex);
         }
         return total;
+    }
+    
+    public String setService(Service service){
+        DBConnect conec = new DBConnect();
+        String response = "";
+        
+        try {
+            Connection con = null;
+            con = conec.getConnection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = con.prepareStatement("INSERT INTO service values(?,?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, getNextId());
+            ps.setString(2, service.getServiceDate());
+            ps.setString(3, service.getServBrand());
+            ps.setString(4, service.getServModel());
+            ps.setString(5, service.getServColor());
+            ps.setString(6, service.getServPlate());
+            ps.setString(7, service.getServOrig());
+            ps.setString(8, service.getServDest());
+            ps.setFloat(9, service.getServCost());
+            ps.setString(10, service.getServUnity());
+            ps.executeUpdate();
+            response="Succesfull Save Service";
+        } catch (Exception e) {
+            System.out.println(e);
+            response="Error Save Service";
+        }
+        conec.finished();
+        return response;
+    }
+    
+    public String getMaxId(){
+        DBConnect conec = new DBConnect();
+        String response = "";
+        try {
+            Connection con = null;
+            con = conec.getConnection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = con.prepareStatement("Select max(servid) as maxId from service");
+            rs = ps.executeQuery();
+            if(rs.next()){
+                response = rs.getString(1);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return response;
+    }
+    public String getNextId(){
+        String maxId = getMaxId();
+        int id = Integer.parseInt(maxId);
+        id++;
+        return String.valueOf(id);
     }
 }
