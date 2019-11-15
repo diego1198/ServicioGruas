@@ -1,0 +1,7 @@
+{
+"craneManagerId": 1719568378,
+"operatorId": "1717922080",
+"operatorLastName": "NUÑEZ",
+"operatorLicense": "C",
+"operatorName": "EDUARDO"
+}
