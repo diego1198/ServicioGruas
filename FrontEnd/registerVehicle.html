@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Vehicle Company</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatoble" content="ie-edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">  
+    <link rel="stylesheet" type="text/css" href="css/business-casual.min.css">  
+</head>
+<body>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+            <span class="site-heading-upper text-primary">Gruas Service</span>
+          </h1>
+          <!-- Navigation -->
+          <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
+            <div class="container">
+              <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Register Vehicle</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
+              aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="index.html">HOME
+                      <span class="sr-only">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="register.html">CLIENT</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+      
+          <form id='form'  method="POST" style="background:rgba(6, 98, 160, 0.61)">
+            <div class="container">
+              <div class="row">
+                <div class="col-6 mx-auto">
+                  <div class="cta-inner rounded">
+                    <br>
+                    <label for="vehicleId" style="color: white;">ID: </label><input type="text" class="form-control" id="id" placeholder="Ej: 172812L">
+                    <label for="vehicleModel" style="color: white;">Model: </label><input type="text" class="form-control" id="model" placeholder="Ej: MAC">
+                    <label for="vehicleBrand" style="color: white;">Brand: </label><input type="text" class="form-control" id="brand" placeholder="Ej: XL-200">
+                    <label for="vehicleColor" style="color: white;">Color: </label><input type="text" class="form-control" id="color" placeholder="Ej: Black">
+                    <label for="vehiclePlate" style="color: white;">Plate: </label><input type="text" class="form-control" id="plate" placeholder="Ej: PQR-0234">
+                    <br>
+                    <label for="vehicleType" style="color: white;">Type: </label>
+                    <select name="type" form="select-control" class="form-control">
+                        <option value="Grua" >Grua</option>
+                        <option value="Camion">Camion</option>
+                        <option value="Wincha">Wincha</option>
+                    </select>
+                    <br>
+                    <div class="text-center">
+                        <button onclick="operation()" class="btn btn-success border" name="registerVehicle" id="registerVehicle">REGISTER VEHICLE</button><br><br>
+                        <button class="btn btn-success border" type="reset" name="clear" id="clear"> CLEAR </button><br><br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+      
+          <footer class="footer text-faded text-center py-5">
+            <div class="container">
+              <p class="m-0 small">Copyright &copy; ESPE - Gruas Service 2019</p>
+            </div>
+          </footer>
+
+
+<script src="js/jquery-3.4.1.min"></script>
+<script src="js/popper.min"></script>
+<script src="js/bootstrap.min"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
