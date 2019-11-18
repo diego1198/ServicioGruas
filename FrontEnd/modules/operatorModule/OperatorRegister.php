@@ -25,9 +25,9 @@ $response =$mysqli->query($query);
     <script type="text/javascript" src="js/validate.js"></script>
 
     <script language="javascript" src="js/list.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="/FrontEnd/css/bootstrap.css">
+    <script type="text/javascript" src="/FrontEnd/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/FrontEnd/js/jquery-3.4.1.min.js"></script>
 
 
 </head>
