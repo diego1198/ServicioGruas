@@ -77,8 +77,8 @@ function validateDNI(dni){
             if (cad.charAt(longitud - 1) == total) {
                 alert('All fields are correct!')
             } else {
-                alert("Cedula Inválida");
-                return false;
+                alert('Incorrect DNI')
+                document.getElementById('dni').focus();
             }
         }
     }else{
