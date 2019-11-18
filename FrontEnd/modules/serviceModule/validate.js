@@ -18,7 +18,7 @@ function validateService(){
                     if(origin != ''){
                         if(destiny != ''){
                             if(serviceDate != ''){
-                                if(total != ''){
+                                if(total != '$' && total != '$'){
                                     validateDNI(dni);
                                 }else{
                                     alert('The field Total must be fill')

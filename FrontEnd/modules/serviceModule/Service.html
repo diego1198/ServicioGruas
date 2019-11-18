@@ -95,7 +95,7 @@
                             </li>
                             <li class="list-group-item bg-light">
                                 <center>
-                                    <button class="btn btn-success btn-lg" type="submit" id="save"
+                                    <button class="btn btn-success btn-lg" id="save"
                                         onclick="validateService()">
                                         Save
                                     </button>
@@ -129,7 +129,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="model">Color</label>
                                 <select id="color" name="color" class="form-control">
-                                    <option value="0" class="dark">Choose a color</option>
+                                    <option value="" class="dark">Choose a color</option>
                                     <option value="blue">Blue</option>
                                     <option value="black">Black</option>
                                     <option value="white">White</option>
@@ -141,15 +141,15 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="origin">Origin</label>
-                                <input class="form-control" type="text" name="origin" placeholder="El Inca">
+                                <input class="form-control" type="text" name="origin" id="origin" placeholder="El Inca" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="">Destiny</label>
-                                <input class="form-control" type="text" name="destiny" placeholder="Conocoto">
+                                <input class="form-control" type="text" name="destiny" id="destiny" placeholder="Conocoto" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="">Service Date</label>
-                                <input class="form-control" type="date" name="service_date">
+                                <input class="form-control" type="date" name="service_date" id="service_date" required>
                             </div>
                         </div>
                     </form>
