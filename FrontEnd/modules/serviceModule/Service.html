@@ -9,14 +9,28 @@
     <script type="text/javascript" src="/FrontEnd/js/jquery-3.4.1.min.js"></script>
     <title>Service</title>
 </head>
-<body class="bg-light">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+        <img src="/FrontEnd/images/logoGruas.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            ServiGruas
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="#">Services</a>
+            <a class="nav-item nav-link" href="#">Operator</a>
+            <a class="nav-item nav-link" href="#">Comp. Vehicle</a>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <div class="py-5 text-center">
-            <!--<img src="http://www.gruasandrade.com.mx/portal/img/pagina-3-_0013_grua-2.png" alt="" class="medium">-->
             <h2><b>Service</b></h2>
-        </div>
-        
-        
+        </div>        
         <div class="row">
             <div class="col-md-4 order-md-2 card">
                 <div class="card-header">
@@ -33,7 +47,7 @@
                             </div>
                             <div class="">
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="dni" placeholder="17990773648">
+                                    <input type="text" class="form-control" id="dni" placeholder="1799077364">
                                 </div>
                             </div>
                         </li>
@@ -45,15 +59,15 @@
                             <div class="d-block">
                                 <div class="custom-control custom-radio">
                                     <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                                    <label class="custom-control-label" for="credit">Credit card</label>
+                                    <label class="custom-control-label" for="credit"><p>Credit card</p></label>
                                 </div>
                                 <div class="custom-control custom-radio">
                                     <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                                    <label class="custom-control-label" for="debit">Debit card</label>
+                                    <label class="custom-control-label" for="debit"><p>Debit card</p></label>
                                 </div>
                                 <div class="custom-control custom-radio">
                                     <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                                    <label class="custom-control-label" for="paypal">Other</label>
+                                    <label class="custom-control-label" for="paypal"><p>Other</p></label>
                                 </div>
                             </div>
                         </li>
@@ -83,36 +97,36 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="brand">Brand</label>
-                            <input type="text" class="form-control" id="brand" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="brand" placeholder="Kia" value="" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="model">Model</label>
-                            <input type="text" class="form-control" id="model" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="model" placeholder="Cerato" value="" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="plate">Plate</label>
-                            <input type="text" class="form-control" id="plate" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="plate" placeholder="PBC-8489" value="" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="model">Color</label>
                             <select id="color" name="color" class="form-control">
-                                    <option>Choose a color</option>
-                                    <option>Blue</option>
-                                    <option>Black</option>
-                                    <option>White</option>
-                                    <option>Red</option>
-                                </select>
+                                <option value="0" class="dark">Choose a color</option>
+                                <option value="blue">Blue</option>
+                                <option value="black">Black</option>
+                                <option value="white">White</option>
+                                <option value="red">Red</option>
+                            </select>
                         </div>
                     </div>
                     <h4 class="mb-3">Service Data</h4>
                     <div class="row">
                             <div class="col-md-6 mb-3">
                                     <label for="origin">Origin</label>
-                                    <input class="form-control" type="text" name="origin">
+                                    <input class="form-control" type="text" name="origin" placeholder="El Inca">
                             </div>
                             <div class="col-md-6 mb-3">
                                     <label for="">Destiny</label>
-                                    <input class="form-control" type="text" name="destiny">
+                                    <input class="form-control" type="text" name="destiny" placeholder="Conocoto">
                             </div>
                             <div class="col-md-6 mb-3">
                                     <label for="">Service Date</label>
@@ -123,7 +137,12 @@
             </div>
         </div>
     </div>
-    <script src="/js/validation.js"></script>
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small"><h4>Copyright &copy; ESPE - Gruas Service 2019</h4></p>
+        </div>
+    </footer>
+    <script src="./validate.js"></script>
 </body>
 
 </html>

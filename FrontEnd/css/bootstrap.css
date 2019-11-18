@@ -52,6 +52,15 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background:-webkit-gradient(linear,left top,left bottom,from(rgba(33, 56, 83, 0.70))),url(../images/bg.jpg);
+  background:linear-gradient(rgba(47,23,15,.55)),url(../images/bg.jpg);
+  background-attachment:fixed;
+  background-position:center;
+  background-size:cover
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -60,7 +69,10 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background:linear-gradient(rgba(47,23,15,.55)),url(../images/bg.jpg);
+  background-attachment:fixed;
+  background-position:center;
+  background-size:cover
 }
 
 [tabindex="-1"]:focus {
@@ -73,14 +85,23 @@ hr {
   overflow: visible;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
   margin-top: 0;
   margin-bottom: 0.5rem;
+  color: white;
 }
+
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
 
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: black
 }
 
 abbr[title],
@@ -224,6 +245,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
+  color: white;
 }
 
 button {
@@ -4557,7 +4579,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: white;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
