@@ -32,7 +32,7 @@ $response =$mysqli->query($query);
 
 </head>
 
-<body  class="bg-light">
+<body>
     <div class="container">
         <div class="py-5 text-center">
         <h2 > <b>ENTER YOUR INFORMATION</b> </h2>
