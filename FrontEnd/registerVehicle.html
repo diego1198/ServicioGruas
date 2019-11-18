@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatoble" content="ie-edge">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">  
-    <link rel="stylesheet" type="text/css" href="css/business-casual.min.css">  
+    <link rel="stylesheet" type="text/css" href="css/business-casual.min.css">
+    <script src="/js/validate.js"></script>  
 </head>
 <body>
 
@@ -36,27 +37,28 @@
             </div>
           </nav>
       
-          <form id='form'  method="POST" style="background:rgba(6, 98, 160, 0.61)">
+          <form id='form'  method="POST" onsubmit="return validateRegisterVehicle(); " style="background:rgba(6, 98, 160, 0.61)">
             <div class="container">
               <div class="row">
                 <div class="col-6 mx-auto">
                   <div class="cta-inner rounded">
                     <br>
-                    <label for="vehicleId" style="color: white;">ID: </label><input type="text" class="form-control" id="id" placeholder="Ej: 172812L">
-                    <label for="vehicleModel" style="color: white;">Model: </label><input type="text" class="form-control" id="model" placeholder="Ej: MAC">
-                    <label for="vehicleBrand" style="color: white;">Brand: </label><input type="text" class="form-control" id="brand" placeholder="Ej: XL-200">
-                    <label for="vehicleColor" style="color: white;">Color: </label><input type="text" class="form-control" id="color" placeholder="Ej: Black">
-                    <label for="vehiclePlate" style="color: white;">Plate: </label><input type="text" class="form-control" id="plate" placeholder="Ej: PQR-0234">
+                    <label for="vehicleId" style="color: white;">ID: </label><input type="text" class="form-control" id="id" placeholder="Ej: 172812L" required>
+                    <label for="vehicleModel" style="color: white;">Model: </label><input type="text" class="form-control" id="model" placeholder="Ej: MAC" required>
+                    <label for="vehicleBrand" style="color: white;">Brand: </label><input type="text" class="form-control" id="brand" placeholder="Ej: XL-200" required>
+                    <label for="vehicleColor" style="color: white;">Color: </label><input type="text" class="form-control" id="color" placeholder="Ej: Black" required>
+                    <label for="vehiclePlate" style="color: white;">Plate: </label><input type="text" class="form-control" id="plate" placeholder="Ej: PQR-0234" required>
                     <br>
                     <label for="vehicleType" style="color: white;">Type: </label>
-                    <select name="type" form="select-control" class="form-control">
+                    <select name="type" form="select-control" class="form-control" id="type">
                         <option value="Grua" >Grua</option>
                         <option value="Camion">Camion</option>
                         <option value="Wincha">Wincha</option>
                     </select>
                     <br>
                     <div class="text-center">
-                        <button onclick="operation()" class="btn btn-success border" name="registerVehicle" id="registerVehicle">REGISTER VEHICLE</button><br><br>
+                      <input type="submit" value="Registrar" class="btn-eviar" >
+                        <!-- <button onclick="operation()" class="btn btn-success border" name="registerVehicle" id="registerVehicle">REGISTER VEHICLE</button><br><br> -->
                         <button class="btn btn-success border" type="reset" name="clear" id="clear"> CLEAR </button><br><br>
                     </div>
                   </div>
