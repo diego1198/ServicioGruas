@@ -25,7 +25,7 @@ $response =$mysqli->query($query);
     <script type="text/javascript" src="js/validate.js"></script>
 
     <script language="javascript" src="js/list.js"></script>
-      <link rel="stylesheet" type="text/css" href="/FrontEnd/css/bootstrap.css">
+     <link rel="stylesheet" type="text/css" href="/FrontEnd/css/bootstrap.css">
     <script type="text/javascript" src="/FrontEnd/js/bootstrap.js"></script>
     <script type="text/javascript" src="/FrontEnd/js/jquery-3.4.1.min.js"></script>
 
@@ -39,25 +39,25 @@ $response =$mysqli->query($query);
         </div>
         
 
-        <form class="needs-validation" action="service.js" method="POST"  id="formOperator" onsubmit="return validateForm();">
+        <form  class="needs-validation" action="service.js" method="POST"  id="formOperator" onsubmit="return validateForm();">
            
           <div class="col-md-6 mb-3">
-            <label>Name: </label>
+            <label for="model">Name: </label>
             <input class="form-control" type="text" id="name" placeholder="Henry"> <br>
           </div>
           <div class="col-md-6 mb-3">
-            <label>Last Name: </label>
+            <label for="model">Last Name: </label>
             <input class="form-control" type="text" id="lastname" placeholder="Aguaiza"> <br>
           </div>
           <div class="col-md-6 mb-3">
-            <label>Id: </label>
+            <label for="model">Id: </label>
             <input class="form-control" type="text" id="id" placeholder="1719568378"><br>
           </div>
         
           <div class="col-md-6 mb-3">
-          <label>Driver's license: </label>
+             <label for="model">Driver's license: </label>
 
-            <select id="license" class="form-control">
+              <select id="license" class="form-control">
                 <option value="0">SELECT A LICENSE</option>
                 <option value="1">A</option>
                 <option value="2">B</option>
@@ -70,15 +70,18 @@ $response =$mysqli->query($query);
                 <option value="9">E</option>
                 <option value="10">E1</option>
                 <option value="11">G</option>
-           </select>
+             </select>
 
-          </div class="col-md-6 mb-3">
-            
-            <label>Crane Manager: </label>
+          </div >
+
+
+
+          <div class="col-md-6 mb-3">
+
+
+          <label for="model">Crane Manager: </label>
             <select id="craneManager" class="form-control">
                     <option value="0">SELECT A CRANE MANAGER</option>
-
-
                     <?php 
                     $cont=0;  
                     while($row = $response->fetch_assoc()) { ?>
@@ -86,23 +89,30 @@ $response =$mysqli->query($query);
 
                     <?php }?>
                     
-                </select> <br>
+            </select> <br>
+          </div>
 
+         <div class="col-md-6 mb-3">
+                <center>
+                    <input  class="btn btn-success btn-lg" type="submit" value="Create" id="submit">
+                </center>
 
-            <input type="submit" value="Create" id="submit">
+         </div>
+
+           
 
             
            
 
         </form>
 
-        <form action="">
-
-        <div id="prueba"></div>
-        <button onclick="getOperator()">obtenr</button>
-        </form>
+       
     </div>
-    
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small"><h4>Copyright &copy; ESPE - Gruas Service 2019</h4></p>
+        </div>
+    </footer>
         
 </body>
 
