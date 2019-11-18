@@ -10,139 +10,159 @@
     <script type="text/javascript" src="/FrontEnd/js/jquery-3.4.1.min.js"></script>
     <title>Service</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-        <img src="/FrontEnd/images/logoGruas.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="/FrontEnd/images/logoGruas.png" width="30" height="30" class="d-inline-block align-top" alt="">
             ServiGruas
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" href="#">Services</a>
-            <a class="nav-item nav-link" href="#">Operator</a>
-            <a class="nav-item nav-link" href="#">Comp. Vehicle</a>
+                <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="#">Services</a>
+                <a class="nav-item nav-link" href="#">Operator</a>
+                <a class="nav-item nav-link" href="#">Comp. Vehicle</a>
             </div>
         </div>
     </nav>
     <div class="container">
         <div class="py-5 text-center">
             <h2><b>Service</b></h2>
-        </div>        
-        <div class="row">
-            <div class="col-md-4 order-md-2 card">
-                <div class="card-header">
-                    <h4 class=" align-items-center">
-                        <span class="text-muted">Total Service</span>
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group mb-4">
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div class="col-sm-4">
-                                <h6 class="my-0">Client Data</h6>
-                                <small class="text-muted">DNI</small>
-                            </div>
-                            <div class="">
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="dni" placeholder="1799077364">
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 class="my-0">Billing Data</h6>
-                                <small class="text-muted">Payment type</small>
-                            </div>
-                            <div class="d-block">
-                                <div class="custom-control custom-radio">
-                                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                                    <label class="custom-control-label" for="credit"><p>Credit card</p></label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                                    <label class="custom-control-label" for="debit"><p>Debit card</p></label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                                    <label class="custom-control-label" for="paypal"><p>Other</p></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div class="col-sm-4">
-                                <b><span>Total (USD)</span></b>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="total" placeholder="$" value="" required>
-                            </div>
-                        </li>
-                        <li class="list-group-item bg-light">
-                            <center>
-                                <button class="btn btn-success btn-lg" type="submit" id="save">
-                                    Save
-                                    </button>
-                            </center>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-8 order-mb-1">
-
-                <form class="needs-validation" novalidate>
-                    <h4 class="mb-3">Vehicle Data</h4>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="brand">Brand</label>
-                            <input type="text" class="form-control" id="brand" placeholder="Kia" value="" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="model">Model</label>
-                            <input type="text" class="form-control" id="model" placeholder="Cerato" value="" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="plate">Plate</label>
-                            <input type="text" class="form-control" id="plate" placeholder="PBC-8489" value="" required>
-                        </div>
-
-
-                        <div class="col-md-6 mb-3">
-                            <label for="model">Color</label>
-                            <select id="color" name="color" class="form-control">
-                                <option value="0" class="dark">Choose a color</option>
-                                <option value="blue">Blue</option>
-                                <option value="black">Black</option>
-                                <option value="white">White</option>
-                                <option value="red">Red</option>
-                            </select>
-                        </div>
-                    </div>
-                    <h4 class="mb-3">Service Data</h4>
-                    <div class="row">
-                            <div class="col-md-6 mb-3">
-                                    <label for="origin">Origin</label>
-                                    <input class="form-control" type="text" name="origin" placeholder="El Inca">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                    <label for="">Destiny</label>
-                                    <input class="form-control" type="text" name="destiny" placeholder="Conocoto">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                    <label for="">Service Date</label>
-                                    <input class="form-control" type="date" name="service_date">
-                            </div>
-                    </div>
-                </form>
-            </div>
         </div>
+        <form action="" id="formService">
+            <div class="row">
+                <div class="col-md-4 order-md-2 card">
+                    <div class="card-header">
+                        <h4 class=" align-items-center">
+                            <span class="text-muted">Total Service</span>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div class="col-sm-4">
+                                    <h6 class="my-0">Client Data</h6>
+                                    <small class="text-muted">DNI</small>
+                                </div>
+                                <div class="">
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="dni" placeholder="1799077364">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Billing Data</h6>
+                                    <small class="text-muted">Payment type</small>
+                                </div>
+                                <div class="d-block">
+                                    <div class="custom-control custom-radio">
+                                        <input id="credit" name="paymentMethod" type="radio"
+                                            class="custom-control-input" checked required>
+                                        <label class="custom-control-label" for="credit">
+                                            <p>Credit card</p>
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"
+                                            required>
+                                        <label class="custom-control-label" for="debit">
+                                            <p>Debit card</p>
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input id="paypal" name="paymentMethod" type="radio"
+                                            class="custom-control-input" required>
+                                        <label class="custom-control-label" for="paypal">
+                                            <p>Other</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <div class="col-sm-4">
+                                    <b><span>Total (USD)</span></b>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="total" placeholder="$" value=""
+                                        required>
+                                </div>
+                            </li>
+                            <li class="list-group-item bg-light">
+                                <center>
+                                    <button class="btn btn-success btn-lg" type="submit" id="save"
+                                        onclick="validateService()">
+                                        Save
+                                    </button>
+                                </center>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 order-mb-1">
+
+                    <form class="needs-validation" novalidate>
+                        <h4 class="mb-3">Vehicle Data</h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="brand">Brand</label>
+                                <input type="text" class="form-control" id="brand" placeholder="Kia" value="" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="model">Model</label>
+                                <input type="text" class="form-control" id="model" placeholder="Cerato" value=""
+                                    required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="plate">Plate</label>
+                                <input type="text" class="form-control" id="plate" placeholder="PBC-8489" value=""
+                                    required>
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+                                <label for="model">Color</label>
+                                <select id="color" name="color" class="form-control">
+                                    <option value="0" class="dark">Choose a color</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="black">Black</option>
+                                    <option value="white">White</option>
+                                    <option value="red">Red</option>
+                                </select>
+                            </div>
+                        </div>
+                        <h4 class="mb-3">Service Data</h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="origin">Origin</label>
+                                <input class="form-control" type="text" name="origin" placeholder="El Inca">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="">Destiny</label>
+                                <input class="form-control" type="text" name="destiny" placeholder="Conocoto">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="">Service Date</label>
+                                <input class="form-control" type="date" name="service_date">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </form>
+
     </div>
     <footer class="footer text-faded text-center py-5">
         <div class="container">
-            <p class="m-0 small"><h4>Copyright &copy; ESPE - Gruas Service 2019</h4></p>
+            <p class="m-0 small">
+                <h4>Copyright &copy; ESPE - Gruas Service 2019</h4>
+            </p>
         </div>
     </footer>
     <script src="./validate.js"></script>
