@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +10,21 @@
     <script type="text/javascript" src="/FrontEnd/js/jquery-3.4.1.min.js"></script>
     <title>Service</title>
 </head>
+
 <body class="bg-light">
     <div class="container">
         <div class="py-5 text-center">
             <!--<img src="http://www.gruasandrade.com.mx/portal/img/pagina-3-_0013_grua-2.png" alt="" class="medium">-->
             <h2><b>Service</b></h2>
         </div>
-        
-        
+
+
         <div class="row">
             <div class="col-md-4 order-md-2 card">
                 <div class="card-header">
                     <h4 class=" align-items-center">
-                            <span class="text-muted">Total Service</span>
-                    </h4>    
+                        <span class="text-muted">Total Service</span>
+                    </h4>
                 </div>
                 <div class="card-body">
                     <ul class="list-group mb-4">
@@ -61,23 +63,23 @@
                             <div class="col-sm-4">
                                 <b><span>Total (USD)</span></b>
                             </div>
-                            <div class="col-sm-8">        
-                                    <input type="text" class="form-control" id="total" placeholder="$" value="" required>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="total" placeholder="$" value="" required>
                             </div>
                         </li>
                         <li class="list-group-item bg-light">
                             <center>
-                                    <button class="btn btn-success btn-lg" type="submit" id="save">
+                                <button class="btn btn-success btn-lg" type="submit" id="save">
                                     Save
                                     </button>
                             </center>
-                            
+
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-8 order-mb-1">
-                
+
                 <form class="needs-validation" novalidate>
                     <h4 class="mb-3">Vehicle Data</h4>
                     <div class="row">
@@ -93,6 +95,8 @@
                             <label for="plate">Plate</label>
                             <input type="text" class="form-control" id="plate" placeholder="" value="" required>
                         </div>
+
+
                         <div class="col-md-6 mb-3">
                             <label for="model">Color</label>
                             <select id="color" name="color" class="form-control">
@@ -106,18 +110,18 @@
                     </div>
                     <h4 class="mb-3">Service Data</h4>
                     <div class="row">
-                            <div class="col-md-6 mb-3">
-                                    <label for="origin">Origin</label>
-                                    <input class="form-control" type="text" name="origin">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                    <label for="">Destiny</label>
-                                    <input class="form-control" type="text" name="destiny">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                    <label for="">Service Date</label>
-                                    <input class="form-control" type="date" name="service_date">
-                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="origin">Origin</label>
+                            <input class="form-control" type="text" name="origin">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="">Destiny</label>
+                            <input class="form-control" type="text" name="destiny">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="">Service Date</label>
+                            <input class="form-control" type="date" name="service_date">
+                        </div>
                     </div>
                 </form>
             </div>
