@@ -24,6 +24,7 @@ $response =$mysqli->query($query);
 
 </head>
 
+<<<<<<< HEAD
 <body  >
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,6 +50,9 @@ $response =$mysqli->query($query);
 
 
 
+=======
+<body>
+>>>>>>> 2ab4a1be88fdd6361b941bf4be5d7522c03508ac
     <div class="container">
         <div class="py-5 text-center">
         <h2 > <b>ENTER YOUR INFORMATION</b> </h2>

@@ -18,7 +18,7 @@ function validateService(){
                     if(origin != ''){
                         if(destiny != ''){
                             if(serviceDate != ''){
-                                if(total != ''){
+                                if(total != '$' && total != '$'){
                                     validateDNI(dni);
                                 }else{
                                     alert('The field Total must be fill')
@@ -77,8 +77,8 @@ function validateDNI(dni){
             if (cad.charAt(longitud - 1) == total) {
                 alert('All fields are correct!')
             } else {
-                alert("Cedula Inválida");
-                return false;
+                alert('Incorrect DNI')
+                document.getElementById('dni').focus();
             }
         }
     }else{
