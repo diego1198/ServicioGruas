@@ -1,18 +1,10 @@
 <?php
 
 require('php/Connection.php');
-
 $query= "SELECT cmid,cmuser FROM cranemanager order by cmuser ASC" ;
 $response =$mysqli->query($query);
 
-
-
 ?>
-
-
-
-
-
 
 <!doctype html>
 <html>
@@ -25,19 +17,42 @@ $response =$mysqli->query($query);
     <script type="text/javascript" src="js/validate.js"></script>
 
     <script language="javascript" src="js/list.js"></script>
-     <link rel="stylesheet" type="text/css" href="/FrontEnd/css/bootstrap.css">
-    <script type="text/javascript" src="/FrontEnd/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/FrontEnd/js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
 
 </head>
 
-<body  class="bg-light">
+<body  >
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="/FrontEnd/images/logoGruas.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            ServiGruas
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link " href="#">Services</a>
+                <a class="nav-item nav-link active" href="#">Operator</a>
+                <a class="nav-item nav-link" href="#">Comp. Vehicle</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
     <div class="container">
         <div class="py-5 text-center">
         <h2 > <b>ENTER YOUR INFORMATION</b> </h2>
         </div>
-        
 
         <form  class="needs-validation" action="service.js" method="POST"  id="formOperator" onsubmit="return validateForm();">
            
@@ -74,11 +89,7 @@ $response =$mysqli->query($query);
 
           </div >
 
-
-
           <div class="col-md-6 mb-3">
-
-
           <label for="model">Crane Manager: </label>
             <select id="craneManager" class="form-control">
                     <option value="0">SELECT A CRANE MANAGER</option>
@@ -86,24 +97,14 @@ $response =$mysqli->query($query);
                     $cont=0;  
                     while($row = $response->fetch_assoc()) { ?>
                         <option value="<?php $cont++; ?>"> <?php echo $row['cmid']. '-'. $row['cmuser'] ; ?>   </option>
-
-                    <?php }?>
-                    
+                    <?php }?>  
             </select> <br>
           </div>
-
          <div class="col-md-6 mb-3">
                 <center>
                     <input  class="btn btn-success btn-lg" type="submit" value="Create" id="submit">
                 </center>
-
          </div>
-
-           
-
-            
-           
-
         </form>
 
        
