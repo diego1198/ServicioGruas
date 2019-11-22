@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ServiGruas-Nuñez</title>
-    <script type="text/javascript" src="/js/validate.js"></script>
+    <script type="text/javascript" src="/modules/operatorModule/validateOperatorRegister.js"></script>
     <script language="javascript" src="/js/list.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <script type="text/javascript" src="/js/bootstrap.js"></script>
@@ -41,7 +41,7 @@
                 <h2> <b>ENTER YOUR INFORMATION</b> </h2>
             </div>
 
-            <form class="needs-validation" action="service.js" method="POST" id="formOperator" onsubmit="return validateForm();">
+            <form class="needs-validation" action="/modules/operatorModule/validateOperatorRegister.js" method="POST" id="formOperator" onsubmit="return validateOperatorRegister();">
 
                 <div class="col-md-6 mb-3">
                     <label for="model">Name: </label>
@@ -73,9 +73,7 @@
                 <option value="10">E1</option>
                 <option value="11">G</option>
              </select>
-
                 </div>
-
                 <div class="col-md-6 mb-3">
                     <label for="model">Crane Manager: </label>
                     <select id="craneManager" class="form-control">
