@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ServiGruas-Nuñez</title>
     <script type="text/javascript" src="/modules/operatorModule/validateOperatorRegister.js"></script>
-    <script language="javascript" src="/js/list.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/modules/operatorModule/httpMethods.js"></script>
 
 
 </head>
@@ -88,6 +88,10 @@
                     </center>
                 </div>
             </form>
+
+            <button onclick="getAllCraneManager()">obtener</button>
+            <div id="contenido">
+            </div>
 
 
         </div>
