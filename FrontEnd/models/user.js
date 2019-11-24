@@ -17,5 +17,5 @@ function validateUser(){
     usuario = $('#uname1').val();
     pass = $('pwd1').val();
     const ObjUser = new user(usuario,pass);
-    
+    location.href="/FrontEnd/modules/serviceModule/Service.html";
 }

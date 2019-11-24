@@ -85,16 +85,21 @@ hr {
   overflow: visible;
 }
 
-h1, h3, h4, h5 {
+h1, h4, h5 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   color: white;
+}
+h3{
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: black;
 }
 
 h2{
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: black;
+  color: white;
 }
 
 h6 {
@@ -102,7 +107,9 @@ h6 {
   margin-bottom: 0.5rem;
   color: black;
 }
-
+card-title{
+  color: black;
+}
 
 p {
   margin-top: 0;
@@ -246,6 +253,12 @@ caption {
 
 th {
   text-align: inherit;
+}
+
+username{
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: black;
 }
 
 label {
@@ -4585,7 +4598,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color:none;
+  background-color:white;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
