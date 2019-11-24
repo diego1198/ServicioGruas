@@ -2,90 +2,85 @@
 <html>
 
 <head>
-  <title>Register Vehicle Company</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatoble" content="ie-edge">
-  <link rel="stylesheet" type="text/css" href="/FrontEnd/css/bootstrap.css">
-  <script type="text/javascript" src="/FrontEnd/js/bootstrap.js"></script>
-  <script type="text/javascript" src="/FrontEnd/js/jquery-3.4.1.min.js"></script>
+    <title>Register Vehicle Company</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatoble" content="ie-edge">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-      <img src="/FrontEnd/images/logoGruas.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      ServiGruas
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="/images/logoGruas.png" width="30" height="30" class="d-inline-block align-top" alt=""> ServiGruas
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">Services</a>
-        <a class="nav-item nav-link" href="#">Operator</a>
-        <a class="nav-item nav-link active" href="#">Comp. Vehicle</a>
-      </div>
-    </div>
-  </nav>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Services</a>
+                <a class="nav-item nav-link" href="#">Operator</a>
+                <a class="nav-item nav-link active" href="#">Comp. Vehicle</a>
+            </div>
+        </div>
+    </nav>
 
-  <div class="container">
-      <div class="py-5 text-center">
-          <h2><b>Company Vehicle</b></h2>
-      </div>
-      <form id='form' method="POST" onsubmit="return validateRegisterVehicle();">
-          <div class="container">
-            <div class="row">
-              <div class="col-6 mx-auto">
-                <div class="cta-inner rounded">
-                  <br>
-                  <label for="vehicleId" style="color: white;">ID: </label><input type="text" class="form-control" id="id"
-                    placeholder="Ej: 172812L" required>
-                  <label for="vehicleModel" style="color: white;">Model: </label><input type="text" class="form-control"
-                    id="model" placeholder="Ej: MAC" required>
-                  <label for="vehicleBrand" style="color: white;">Brand: </label><input type="text" class="form-control"
-                    id="brand" placeholder="Ej: XL-200" required>
-                  <label for="vehicleColor" style="color: white;">Color: </label><input type="text" class="form-control"
-                    id="color" placeholder="Ej: Black" required>
-                  <label for="vehiclePlate" style="color: white;">Plate: </label><input type="text" class="form-control"
-                    id="plate" placeholder="Ej: PQR-0234" required>
-                  
-                  <label for="vehicleType" style="color: white;">Type: </label>
-                  <select name="type" form="select-control" class="form-control" id="type">
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2><b>Company Vehicle</b></h2>
+        </div>
+        <form id='form' method="POST" onsubmit="return validateRegisterVehicle();">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 mx-auto">
+                        <div class="cta-inner rounded">
+                            <br>
+                            <label for="vehicleId" style="color: white;">ID: </label><input type="text" class="form-control" id="id" placeholder="Ej: 172812L" required>
+                            <label for="vehicleModel" style="color: white;">Model: </label><input type="text" class="form-control" id="model" placeholder="Ej: MAC" required>
+                            <label for="vehicleBrand" style="color: white;">Brand: </label><input type="text" class="form-control" id="brand" placeholder="Ej: XL-200" required>
+                            <label for="vehicleColor" style="color: white;">Color: </label><input type="text" class="form-control" id="color" placeholder="Ej: Black" required>
+                            <label for="vehiclePlate" style="color: white;">Plate: </label><input type="text" class="form-control" id="plate" placeholder="Ej: PQR-0234" required>
+
+                            <label for="vehicleType" style="color: white;">Type: </label>
+                            <select name="type" form="select-control" class="form-control" id="type">
                     <option value="Grua">Grua</option>
                     <option value="Camion">Camion</option>
                     <option value="Wincha">Wincha</option>
                   </select>
-                  <br>
-                  <div class="text-center">
-                    <input type="submit" value="Register" class="btn btn-success border">
-                    <!-- <button onclick="operation()" class="btn btn-success border" name="registerVehicle" id="registerVehicle">REGISTER VEHICLE</button><br><br> -->
-                    <button class="btn btn-info border" type="reset" name="clear" id="clear">Clear</button><br><br>
-                  </div>
+                            <br>
+                            <div class="text-center">
+                                <input type="submit" value="Register" class="btn btn-success border">
+                                <!-- <button onclick="operation()" class="btn btn-success border" name="registerVehicle" id="registerVehicle">REGISTER VEHICLE</button><br><br> -->
+                                <button class="btn btn-info border" type="reset" name="clear" id="clear">Clear</button><br><br>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </form>
-  </div>
+    </div>
 
 
-  
-
-  <footer class="footer text-faded text-center py-5">
-      <div class="container">
-          <p class="m-0 small"><h4>Copyright &copy; ESPE - Gruas Service 2019</h4></p>
-      </div>
-  </footer>
 
 
-  <script src="js/jquery-3.4.1.min"></script>
-  <script src="js/popper.min"></script>
-  <script src="js/bootstrap.min"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">
+                <h4>Copyright &copy; ESPE - Gruas Service 2019</h4>
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="/js/jquery-3.4.1.min"></script>
+    <script src="/js/popper.min"></script>
+    <script src="/js/bootstrap.min"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

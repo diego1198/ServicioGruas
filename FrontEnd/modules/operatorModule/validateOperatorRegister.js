@@ -1,4 +1,4 @@
-function validateForm() {
+function validateOperatorRegister() {
 
     var name, lastName, id, license, craneManager;
 
@@ -7,8 +7,6 @@ function validateForm() {
     id = document.getElementById('id').value;
     license = document.getElementById('license').value;
     craneManager = document.getElementById('craneManager').value;
-
-
 
     if (name == '' || lastName == '' || id == '' || license == '0' || craneManager == '0') {
         alert('fill in the fields ');
@@ -68,7 +66,9 @@ function validateForm() {
 
 }
 
-function validateRegisterVehicle(){
+
+
+function validateRegisterVehicle() {
     var id, model, brand, color, plate, type;
 
     id = document.getElementById('id').value;
@@ -78,17 +78,17 @@ function validateRegisterVehicle(){
     plate = document.getElementById('plate').value;
     type = document.getElementById('type').value;
 
-    if (id ===  '' || model === '' || brand === '' || color === '' || plate === '' || type === '') {
+    if (id === '' || model === '' || brand === '' || color === '' || plate === '' || type === '') {
         alert('fill in the fields ');
         return false;
-    } else if (model.length>20) {
+    } else if (model.length > 20) {
         alert('Model is large');
         return false;
-    } else if (brand.length>20) {
+    } else if (brand.length > 20) {
         alert('brand is large');
         return false;
-    } else if (plate.length>8 && plate.length<8) {
+    } else if (plate.length > 8 && plate.length < 8) {
         alert('Insert plate correct');
         return false;
-    } 
+    }
 }
