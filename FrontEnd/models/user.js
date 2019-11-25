@@ -19,3 +19,6 @@ function validateUser(){
     const ObjUser = new user(usuario,pass);
     location.href="/FrontEnd/modules/serviceModule/Service.html";
 }
+
+
+
