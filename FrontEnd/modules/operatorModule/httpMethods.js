@@ -8,3 +8,14 @@ function getAllCraneManager() {
         })
 
 }
+
+var invocation = new XMLHttpRequest();
+var url = 'http://localhost:8080/GruasService/RestFul/AllCraneManager';
+
+function callOtherDomain() {
+    if (invocation) {
+        invocation.open('GET', url, true);
+        invocation.onreadystatechange = handler;
+        invocation.send();
+    }
+}
