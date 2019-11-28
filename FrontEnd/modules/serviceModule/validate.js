@@ -88,7 +88,7 @@ function validateDNI(dni){
 }
 
 function cargar(){
-    const URLAPI = "http://localhost:8080/GruasService/RestFul/Service";
+    const URLAPI = "http://localhost:8080/Gruas/Service";
     const container = document.getElementById('tableService');
     let contentHTML = '';
     var i=0;

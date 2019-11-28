@@ -1,16 +1,16 @@
 function getAllCraneManager() {
 
     var contenido = document.querySelector('#contenido');
-    fetch('http://localhost:8080/GruasService/RestFul/AllCraneManager')
+    fetch('http://localhost:8080/Gruas/V1.0/AllCraneManager')
         .then(response => response.json())
         .then(data => {
-            debugger
+            console.log(data);
         })
 
 }
 
 var invocation = new XMLHttpRequest();
-var url = 'http://localhost:8080/GruasService/RestFul/AllCraneManager';
+var url = 'http://localhost:8080/Gruas/V1.0/AllCraneManager';
 
 function callOtherDomain() {
     if (invocation) {
