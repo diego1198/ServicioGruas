@@ -58,9 +58,6 @@ public class ReportByClientIdResource {
 
     public ArrayList showRegisterList(String idClient) throws SQLException {
         DBConnect connect = new DBConnect();
-        
-        
-        
         PreparedStatement state;
         state = connect.getConnection().prepareStatement("SELECT * from report where cliId=? ");
         state.setString(1, idClient);
