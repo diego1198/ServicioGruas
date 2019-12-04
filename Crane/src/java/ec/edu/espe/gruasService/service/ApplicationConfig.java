@@ -11,7 +11,7 @@ import java.util.Set;
  *
  * @author henry
  */
-@javax.ws.rs.ApplicationPath("")
+@javax.ws.rs.ApplicationPath("v1.0")
 public class ApplicationConfig extends javax.ws.rs.core.Application {
 
     @Override
