@@ -50,6 +50,8 @@ public class AllCraneManagerResource {
     }
 
     public ArrayList allCraneManager() throws SQLException {
+        
+        
         DBConnect connect = new DBConnect();
         PreparedStatement state;
         state = connect.getConnection().prepareStatement("SELECT * from cranemanager");
@@ -57,7 +59,7 @@ public class AllCraneManagerResource {
         CraneManager cManager;
         ArrayList<CraneManager> manager = new ArrayList();
         while (rs.next()) {
-            cManager = new CraneManager(rs.getString(1), rs.getString(2), rs.getString(3));
+            cManager = new CraneManager(rs.getString(1), rs.getString(2), rs.getString(3) );
             manager.add(cManager);
         }
         rs.close();
