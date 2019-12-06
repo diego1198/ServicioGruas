@@ -5,7 +5,12 @@
  */
 package ec.edu.espe.craneService.service;
 
+import ec.edu.espe.craneService.model.DBConnect;
 import ec.edu.espe.craneService.model.Report;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -13,6 +18,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -33,22 +39,43 @@ public class ReportResource {
     }
 
     /**
-     * Retrieves representation of an instance of ec.edu.espe.craneService.service.ReportResource
+     * Retrieves representation of an instance of
+     * ec.edu.espe.craneService.service.ReportResource
+     *
      * @return an instance of ec.edu.espe.craneService.model.Report
      */
+    
     @GET
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Report getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public ArrayList <Report> getJsonId(@PathParam("id") String id) throws SQLException {
+        
+         ArrayList <Report> aux= new  ArrayList ();
+         aux=showRegisterListID(id);
+         return aux;
     }
 
-    /**
-     * PUT method for updating or creating an instance of ReportResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(Report content) {
+    public ArrayList showRegisterListID(String idClient) throws SQLException {
+        DBConnect connect = new DBConnect();
+        PreparedStatement state;
+        state = connect.getConnection().prepareStatement("SELECT * from report where cliId=? ");
+        state.setString(1, idClient);
+        ResultSet rs = state.executeQuery();
+        Report serviceClient;
+
+        ArrayList<Report> report = new ArrayList();
+
+        while (rs.next()) {
+            serviceClient = new Report(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            report.add(serviceClient);
+        }
+        rs.close();
+        state.close();
+        return report;
+
     }
+
+
+
+  
 }

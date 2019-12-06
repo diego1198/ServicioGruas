@@ -42,50 +42,46 @@ public class ServiceResource {
     public ServiceResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of ec.edu.espe.craneService.service.ServiceResource
-     * @return an instance of ec.edu.espe.craneService.model.Service
-     */
-   @GET
+ 
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Service> getJson() {
         ArrayList<Service> listServices = new ArrayList<>();
         listServices = getall();
         return listServices;
     }
-    
+
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Service byId(@PathParam("id") String id){
+    public Service byId(@PathParam("id") String id) {
         Service service = new Service();
         service = getById(id);
         return service;
     }
-    
+
     @GET
     @Path("maxId")
     @Produces(MediaType.TEXT_PLAIN)
-    public String byId(){
+    public String byId() {
         return getMaxId();
     }
-    
+
     @GET
     @Path("total/{from}/{to}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getTotal(@PathParam("from") String from,@PathParam("to") String to){
-        return String.valueOf(total(from,to));
+    public String getTotal(@PathParam("from") String from, @PathParam("to") String to) {
+        return String.valueOf(total(from, to));
     }
-    
-     @POST
+
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String postJson(Service content){
+    public String postJson(Service content) {
         return setService(content);
     }
-    
-    
-    public ArrayList<Service> getall(){
+
+    public ArrayList<Service> getall() {
         ArrayList<Service> listServices = new ArrayList<>();
         DBConnect connect = new DBConnect();
         PreparedStatement state;
@@ -94,7 +90,7 @@ public class ServiceResource {
             state = connect.getConnection().prepareStatement("SELECT * from service");
             ResultSet rs = state.executeQuery();
             while (rs.next()) {
-                service = new Service(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getFloat(9),rs.getString(10));
+                service = new Service(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getFloat(9), rs.getString(10));
                 listServices.add(service);
             }
             rs.close();
@@ -104,8 +100,8 @@ public class ServiceResource {
         }
         return listServices;
     }
-    
-    public Service getById(String id){
+
+    public Service getById(String id) {
         Service service = null;
         DBConnect connect = new DBConnect();
         PreparedStatement state;
@@ -114,15 +110,15 @@ public class ServiceResource {
             state.setString(1, id);
             ResultSet rs = state.executeQuery();
             while (rs.next()) {
-                service = new Service(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getFloat(9),rs.getString(10));
+                service = new Service(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getFloat(9), rs.getString(10));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServiceResource.class.getName()).log(Level.SEVERE, null, ex);
         }
         return service;
     }
-    
-    public float total(String from,String to){
+
+    public float total(String from, String to) {
         float total = 0.0f;
         DBConnect connect = new DBConnect();
         PreparedStatement state;
@@ -131,7 +127,7 @@ public class ServiceResource {
             state.setString(1, from);
             state.setString(2, to);
             ResultSet rs = state.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 total = rs.getFloat(1);
             }
         } catch (SQLException ex) {
@@ -139,11 +135,11 @@ public class ServiceResource {
         }
         return total;
     }
-    
-    public String setService(Service service){
+
+    public String setService(Service service) {
         DBConnect conec = new DBConnect();
         String response = "";
-        
+
         try {
             Connection con = null;
             con = conec.getConnection();
@@ -161,16 +157,16 @@ public class ServiceResource {
             ps.setFloat(9, service.getServCost());
             ps.setString(10, service.getServUnity());
             ps.executeUpdate();
-            response="Succesfull Save Service";
+            response = "Succesfull Save Service";
         } catch (Exception e) {
             System.out.println(e);
-            response="Error Save Service";
+            response = "Error Save Service";
         }
         conec.finished();
         return response;
     }
-    
-    public String getMaxId(){
+
+    public String getMaxId() {
         DBConnect conec = new DBConnect();
         String response = "";
         try {
@@ -180,7 +176,7 @@ public class ServiceResource {
             ResultSet rs;
             ps = con.prepareStatement("Select max(servid) as maxId from service");
             rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 response = rs.getString(1);
             }
         } catch (Exception e) {
@@ -188,7 +184,8 @@ public class ServiceResource {
         }
         return response;
     }
-    public String getNextId(){
+
+    public String getNextId() {
         String maxId = getMaxId();
         int id = Integer.parseInt(maxId);
         id++;

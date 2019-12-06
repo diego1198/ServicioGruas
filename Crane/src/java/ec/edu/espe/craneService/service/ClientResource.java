@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.craneService.service;
-
+import ec.edu.espe.craneService.model.Client;
 import ec.edu.espe.craneService.model.DBConnect;
 import ec.edu.espe.craneService.model.Report;
-import ec.edu.espe.gruasService.model.Client;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -115,34 +114,5 @@ public class ClientResource {
         return deleteClient(id);
     }
     
-    
-    @GET
-    @Path("{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList <Report> getJsonId(@PathParam("id") String id) throws SQLException {
-        
-         ArrayList <Report> aux= new  ArrayList ();
-         aux=showRegisterListID(id);
-         return aux;
-    }
-
-    public ArrayList showRegisterListID(String idClient) throws SQLException {
-        DBConnect connect = new DBConnect();
-        PreparedStatement state;
-        state = connect.getConnection().prepareStatement("SELECT * from report where cliId=? ");
-        state.setString(1, idClient);
-        ResultSet rs = state.executeQuery();
-        Report serviceClient;
-
-        ArrayList<Report> report = new ArrayList();
-
-        while (rs.next()) {
-            serviceClient = new Report(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
-            report.add(serviceClient);
-        }
-        rs.close();
-        state.close();
-        return report;
-
-    }
+ 
 }

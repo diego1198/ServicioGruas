@@ -75,6 +75,9 @@ public class ReportByClientIdResource {
         return report;
 
     }
+    
+    
+    
 
     /**
      * PUT method for updating or creating an instance of ReportByIdResource
