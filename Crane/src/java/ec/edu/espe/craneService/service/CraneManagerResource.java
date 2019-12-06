@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.craneService.service;
 
+import ec.edu.espe.craneService.model.CraneManager;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -20,34 +21,34 @@ import javax.ws.rs.core.MediaType;
  * @author henry
  */
 @Path("CraneManager")
-public class CraneManager {
+public class CraneManagerResource {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of CraneManager
+     * Creates a new instance of CraneManagerResource
      */
-    public CraneManager() {
+    public CraneManagerResource() {
     }
 
     /**
-     * Retrieves representation of an instance of ec.edu.espe.craneService.service.CraneManager
+     * Retrieves representation of an instance of ec.edu.espe.craneService.service.CraneManagerResource
      * @return an instance of ec.edu.espe.craneService.model.CraneManager
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public ec.edu.espe.craneService.model.CraneManager getJson() {
+    public CraneManager getJson() {
         //TODO return proper representation object
         throw new UnsupportedOperationException();
     }
 
     /**
-     * PUT method for updating or creating an instance of CraneManager
+     * PUT method for updating or creating an instance of CraneManagerResource
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(ec.edu.espe.craneService.model.CraneManager content) {
+    public void putJson(CraneManager content) {
     }
 }

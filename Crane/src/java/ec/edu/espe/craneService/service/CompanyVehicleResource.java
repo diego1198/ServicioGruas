@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.craneService.service;
 
+import ec.edu.espe.craneService.model.CompanyVehicle;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -12,41 +13,42 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.core.MediaType;
 
 /**
  * REST Web Service
  *
  * @author henry
  */
-@Path("Operator")
-public class Operator {
+@Path("CompanyVehicle")
+public class CompanyVehicleResource {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of Operator
+     * Creates a new instance of CompanyVehicleResource
      */
-    public Operator() {
+    public CompanyVehicleResource() {
     }
 
     /**
-     * Retrieves representation of an instance of ec.edu.espe.craneService.service.Operator
-     * @return an instance of ec.edu.espe.craneService.model.Operator
+     * Retrieves representation of an instance of ec.edu.espe.craneService.service.CompanyVehicleResource
+     * @return an instance of ec.edu.espe.craneService.model.CompanyVehicle
      */
     @GET
-    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    public ec.edu.espe.craneService.model.Operator getJson() {
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompanyVehicle getJson() {
         //TODO return proper representation object
         throw new UnsupportedOperationException();
     }
 
     /**
-     * PUT method for updating or creating an instance of Operator
+     * PUT method for updating or creating an instance of CompanyVehicleResource
      * @param content representation for the resource
      */
     @PUT
-    @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    public void putJson(ec.edu.espe.craneService.model.Operator content) {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void putJson(CompanyVehicle content) {
     }
 }

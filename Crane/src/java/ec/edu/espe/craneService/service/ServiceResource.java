@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.craneService.service;
 
+import ec.edu.espe.craneService.model.Service;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -19,35 +20,35 @@ import javax.ws.rs.core.MediaType;
  *
  * @author henry
  */
-@Path("Client")
-public class Client {
+@Path("Service")
+public class ServiceResource {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of Client
+     * Creates a new instance of ServiceResource
      */
-    public Client() {
+    public ServiceResource() {
     }
 
     /**
-     * Retrieves representation of an instance of ec.edu.espe.craneService.service.Client
-     * @return an instance of ec.edu.espe.gruasService.model.Client
+     * Retrieves representation of an instance of ec.edu.espe.craneService.service.ServiceResource
+     * @return an instance of ec.edu.espe.craneService.model.Service
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public ec.edu.espe.gruasService.model.Client getJson() {
+    public Service getJson() {
         //TODO return proper representation object
         throw new UnsupportedOperationException();
     }
 
     /**
-     * PUT method for updating or creating an instance of Client
+     * PUT method for updating or creating an instance of ServiceResource
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(ec.edu.espe.gruasService.model.Client content) {
+    public void putJson(Service content) {
     }
 }

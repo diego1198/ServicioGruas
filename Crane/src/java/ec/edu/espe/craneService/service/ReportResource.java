@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.craneService.service;
 
+import ec.edu.espe.craneService.model.Report;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -20,34 +21,34 @@ import javax.ws.rs.core.MediaType;
  * @author henry
  */
 @Path("Report")
-public class Report {
+public class ReportResource {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of Report
+     * Creates a new instance of ReportResource
      */
-    public Report() {
+    public ReportResource() {
     }
 
     /**
-     * Retrieves representation of an instance of ec.edu.espe.craneService.service.Report
+     * Retrieves representation of an instance of ec.edu.espe.craneService.service.ReportResource
      * @return an instance of ec.edu.espe.craneService.model.Report
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public ec.edu.espe.craneService.model.Report getJson() {
+    public Report getJson() {
         //TODO return proper representation object
         throw new UnsupportedOperationException();
     }
 
     /**
-     * PUT method for updating or creating an instance of Report
+     * PUT method for updating or creating an instance of ReportResource
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(ec.edu.espe.craneService.model.Report content) {
+    public void putJson(Report content) {
     }
 }
