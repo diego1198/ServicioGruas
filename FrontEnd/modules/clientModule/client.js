@@ -1,22 +1,45 @@
-function validateService(){
-    var brand, model, plate, color, origin, destiny, serviceDate, total, dni;
+function cargar(){
+    const URLAPI = "http://localhost:8080/gruas/Clients";
+    const container = document.getElementById('tableClient');
+    let contentHTML = '';
+    var i=0;
+    fetch(URLAPI)
+        .then(res => res.json())
+        .then((json)=>{
+            container.innerHTML = '';
+            for(const service of json){
+                i++;
+                container.innerHTML += `
+                <tr>
+                    <th scope="row">${i}</th>
+                    <td>${service.clientId}</td>
+                    <td>${Service.clientName}</td>
+                    <td>${Service.clientPhone}</td>
+                    <td><a data-toggle='tooltip' data-placement='top' title='Update' style='margin-right:5px' class='btn btn-success btn-sm'>
+                    <i class="material-icons">build</i>
+                    </a></td>
+                </tr>
+                `;
+                
+            }
+        })
+}
+
+function validateClient(){
+    var id, name, phone;
 
     brand = $('#brand').val();
     model = $('#model').val();
     plate = $('#plate').val();
     color = $('#color').val();
-    origin = $('#origin').val();
-    destiny = $('#destiny').val();
-    serviceDate = $('#service_date').val();
-    total = $('#total').val();
-    dni = $('#dni').val();
-
+    id = $('#id').val();
+    tipe = $('#tipe').val();
     if(brand != ''){
         if(model != ''){
             if(plate != ''){
                 if(color != ''){
-                    if(origin != ''){
-                        if(destiny != ''){
+                    if(type != ''){
+                        if(id != ''){
                             if(serviceDate != ''){
                                 if(total != '$' && total != '$'){
                                     validateDNI(dni);
@@ -85,36 +108,4 @@ function validateDNI(dni){
         alert('Incorrect DNI')
         document.getElementById('dni').focus()
     }
-}
-
-function cargar(){
-    const URLAPI = "http://localhost:8080/gruas/Service";
-    const container = document.getElementById('tableService');
-    let contentHTML = '';
-    var i=0;
-    fetch(URLAPI)
-        .then(res => res.json())
-        .then((json)=>{
-            container.innerHTML = '';
-            for(const service of json){
-                i++;
-                container.innerHTML += `
-                <tr>
-                    <th scope="row">${i}</th>
-                    <td>${service.serviceDate}</td>
-                    <td>${service.servBrand}</td>
-                    <td>${service.servModel}</td>
-                    <td>${service.servColor}</td>
-                    <td>${service.servPlate}</td>
-                    <td>${service.servOrig}</td>
-                    <td>${service.servDest}</td>
-                    <td>${service.servCost}</td>
-                    <td><a data-toggle='tooltip' data-placement='top' title='Update' style='margin-right:5px' class='btn btn-success btn-sm'>
-                    <i class="material-icons">build</i>
-                    </a></td>
-                </tr>
-                `;
-                
-            }
-        })
 }

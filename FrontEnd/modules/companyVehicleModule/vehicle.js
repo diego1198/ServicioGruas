@@ -1,5 +1,5 @@
 function cargar(){
-    const URLAPI = "http://localhost:8080/Gruas/Vehicles";
+    const URLAPI = "http://localhost:8080/gruas/Vehicles";
     const container = document.getElementById('tableVehicle');
     let contentHTML = '';
     var i=0;

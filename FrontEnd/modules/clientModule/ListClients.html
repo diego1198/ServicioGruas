@@ -9,8 +9,8 @@
     <script type="text/javascript" src="../../js/bootstrap.js"></script>
     <script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="/vehicle.js"></script>
-    <title>Vehicles</title>
+    <script src="./client.js"></script>
+    <title>Clients</title>
 </head>
 
 <body onload="cargar()">
@@ -29,31 +29,27 @@
                 <a class="nav-item nav-link" href="../serviceModule/Service.html">Services</a>
                 <a class="nav-item nav-link "
                     href="../operatorModule/OperatorRegister.html">Operator</a>
-                <a class="nav-item nav-link active" href="../companyVehicleModule/registerVehicle.html">Comp.
+                <a class="nav-item nav-link" href="../companyVehicleModule/registerVehicle.html">Comp.
                     Vehicle</a>
-                <a class="nav-item nav-link" href="../clientModule/ListClients.html">Clients</a>
+                <a class="nav-item nav-link active" href="../clientModule/ListClients.html">Clients</a>
             </div>
         </div>
     </nav>
     <div class="container">
         <div class="py-5 text-center">
-            <h2><b>Vehicles</b></h2>
+            <h2><b>Clients</b></h2>
         </div>
-        <div class="mt-5">
+        <div class="mt-2">
 
             <table class="table table-light">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Brand</th>
-                        <th scope="col">Model</th>
-                        <th scope="col">Color</th>
-                        <th scope="col">Plate</th>
-                        <th scope="col">Type</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
                     </tr>
                 </thead>
-                <tbody id="tableVehicle">
+                <tbody id="tableClient">
                     
                     
                 </tbody>
@@ -66,7 +62,6 @@
             <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
             </li>
-            <li class="page-item"><a class="page-link" href="../companyVehicleModule/registerVehicle.html">Add</a></li>
             <li class="page-item">
                 <a class="page-link" tabindex="+1" href="#">Next</a>
             </li>

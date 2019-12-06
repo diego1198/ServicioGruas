@@ -2,6 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/gruasService/service/ClientResource.java</file>
+            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/gruasService/service/CompanyVehicleResource.java</file>
+            <file>file:/C:/Users/Alexis/Documents/GitHub/ServicioGruas/Gruas/src/java/ec/edu/espe/gruasService/service/UpdateLicenseVehicleResource.java</file>
+        </group>
     </open-files>
 </project-private>
