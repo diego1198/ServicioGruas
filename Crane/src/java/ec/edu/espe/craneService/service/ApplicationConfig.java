@@ -30,7 +30,7 @@ public class ApplicationConfig extends javax.ws.rs.core.Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(ec.edu.espe.craneService.service.Client.class);
         resources.add(ec.edu.espe.craneService.service.CompanyVehicle.class);
-        resources.add(ec.edu.espe.craneService.service.CraneManagerResource.class);
+        resources.add(ec.edu.espe.craneService.service.CraneManager.class);
         resources.add(ec.edu.espe.craneService.service.Operator.class);
         resources.add(ec.edu.espe.craneService.service.Report.class);
         resources.add(ec.edu.espe.craneService.service.Service.class);
