@@ -122,7 +122,7 @@ public class CompanyVehicleResource {
         return "registered company vehicle";
     }
   
-     public ArrayList<CompanyVehicle> getAll(){
+    public ArrayList<CompanyVehicle> getAll(){
         ArrayList<CompanyVehicle> listCompVehi = new ArrayList<>();
         DBConnect connect = new DBConnect();
         PreparedStatement state;
