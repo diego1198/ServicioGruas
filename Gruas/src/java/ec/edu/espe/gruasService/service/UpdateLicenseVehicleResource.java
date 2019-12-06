@@ -17,13 +17,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-
 /**
  * REST Web Service
  *
  * @author Alexis
  */
-@Path("updateLicenseVehicle")
+@Path("update")
 public class UpdateLicenseVehicleResource {
 
     @Context
@@ -52,7 +51,7 @@ public class UpdateLicenseVehicleResource {
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public String putJsonPlate(CompanyVehicle vehicle) {
+    public String putJson(CompanyVehicle vehicle) {
         DBConnect conec = new DBConnect();
         try {
             Connection con = null;
@@ -69,6 +68,6 @@ public class UpdateLicenseVehicleResource {
         }
 
         conec.finished();
-        return "Update plate sucessfully";
+        return "Update license sucessfully";
     }
 }
