@@ -51,7 +51,7 @@ public class UpdateLicenseVehicleResource {
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public String putJson(CompanyVehicle vehicle) {
+    public String putJsonPlate(CompanyVehicle vehicle) {
         DBConnect conec = new DBConnect();
         try {
             Connection con = null;
@@ -70,4 +70,6 @@ public class UpdateLicenseVehicleResource {
         conec.finished();
         return "Update license sucessfully";
     }
+    
+    
 }
