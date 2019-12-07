@@ -25,20 +25,20 @@ import javax.ws.rs.core.MediaType;
  *
  * @author henry
  */
-@Path("AllCraneManager")
-public class AllCraneManagerResource {
+@Path("Manager")
+public class ManagerResource {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of AllCraneManagerResource
+     * Creates a new instance of ManagerResource
      */
-    public AllCraneManagerResource() {
+    public ManagerResource() {
     }
 
     /**
-     * Retrieves representation of an instance of ec.edu.espe.gruasService.service.AllCraneManagerResource
+     * Retrieves representation of an instance of ec.edu.espe.gruasService.service.ManagerResource
      * @return an instance of ec.edu.espe.gruasService.model.CraneManager
      */
     @GET
@@ -64,13 +64,5 @@ public class AllCraneManagerResource {
         state.close();
         return manager;
 
-    }
-    /**
-     * PUT method for updating or creating an instance of AllCraneManagerResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(CraneManager content) {
     }
 }
