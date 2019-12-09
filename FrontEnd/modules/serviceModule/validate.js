@@ -120,7 +120,7 @@ function cargar(){
 }
 
 function getDistance(){
-    var apiKey= "AIzaSyDgvZ2fd-Ic_8HvT2ZoAGGC-l76wc_D9mo";
+    var apiKey= "";
     var origin = document.getElementById('origin').value;
     var destiny = document.getElementById('destiny').value;
     var URL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+origin+"&destinations="+destiny+"&key="+apiKey;
