@@ -118,3 +118,27 @@ function cargar(){
             }
         })
 }
+
+function getDistance(){
+    var apiKey= "AIzaSyDgvZ2fd-Ic_8HvT2ZoAGGC-l76wc_D9mo";
+    var origin = document.getElementById('origin').value;
+    var destiny = document.getElementById('destiny').value;
+    var URL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+origin+"&destinations="+destiny+"&key="+apiKey;
+
+    
+    fetch(URL)
+        .then(res => res.json())
+        .then((json)=>{
+            var rows = new Array();
+            rows = json.rows;
+            var row = rows[0];
+            var elements = new Array();
+            elements = row.elements;
+            var elem = elements[0];
+            var distance = elem.distance.text;
+            $('#result').val(distance);
+        })
+    
+
+    
+}
