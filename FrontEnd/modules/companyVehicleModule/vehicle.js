@@ -11,13 +11,12 @@ function cargar(){
                 i++;
                 container.innerHTML += `
                 <tr>
-                    <th scope="row">${i}</th>
-                    <td>${vehicle.serviceId}</td>
-                    <td>${vehicle.servBrand}</td>
-                    <td>${vehicle.servModel}</td>
-                    <td>${vehicle.servColor}</td>
-                    <td>${vehicle.servPlate}</td>
-                    <td>${vehicle.servType}</td>
+                    <td>${vehicle.vehicleId}</td>
+                    <td>${vehicle.vehicleBrand}</td>
+                    <td>${vehicle.vehicleModel}</td>
+                    <td>${vehicle.vehicleColor}</td>
+                    <td>${vehicle.vehicleLicesePlate}</td>
+                    <td>${vehicle.vehicleType}</td>
                     <td><a data-toggle='tooltip' data-placement='top' title='Update' style='margin-right:5px' class='btn btn-success btn-sm'>
                     <i class="material-icons">build</i>
                     </a></td>
@@ -28,55 +27,29 @@ function cargar(){
         })
 }
 
-function validateVehicle(){
-    var id, model, plate, color, brand, tipe;
 
-    brand = $('#brand').val();
-    model = $('#model').val();
-    plate = $('#plate').val();
-    color = $('#color').val();
-    id = $('#id').val();
-    tipe = $('#tipe').val();
-    if(brand != ''){
-        if(model != ''){
-            if(plate != ''){
-                if(color != ''){
-                    if(type != ''){
-                        if(id != ''){
-                            if(serviceDate != ''){
-                                if(total != '$' && total != '$'){
-                                    validateDNI(dni);
-                                }else{
-                                    alert('The field Total must be fill')
-                                    document.getElementById('total').focus()        
-                                }
-                            }else{
-                                alert('The field Service Date must be fill')
-                                document.getElementById('service_date').focus()    
-                            }
-                        }else{
-                            alert('The field destiny must be fill')
-                            document.getElementById('destiny').focus()        
-                        }
-                    }else{
-                        alert('The field origin must be fill')
-                        document.getElementById('origin').focus()    
-                    }
-                }else{
-                    alert('The field color must be fill')
-                    document.getElementById('color').focus()        
-                }
-            }else{
-                alert('The field plate must be fill')
-                document.getElementById('plate').focus()    
-            }
-        }else{
-            alert('The field model must be fill')
-            document.getElementById('model').focus()    
-        }
-    }else{
-        alert('The field brand must be fill')
-        document.getElementById('brand').focus()
+function validateRegisterVehicle() {
+    var id, model, brand, color, plate, type;
+
+    id = document.getElementById('id').value;
+    model = document.getElementById('model').value;
+    brand = document.getElementById('brand').value;
+    color = document.getElementById('color').value;
+    plate = document.getElementById('plate').value;
+    type = document.getElementById('type').value;
+
+    if (id === '' || model === '' || brand === '' || color === '' || plate === '' || type === '') {
+        alert('fill in the fields ');
+        return false;
+    } else if (model.length > 20) {
+        alert('Model is large');
+        return false;
+    } else if (brand.length > 20) {
+        alert('brand is large');
+        return false;
+    } else if (plate.length > 8 && plate.length < 8) {
+        alert('Insert plate correct');
+        return false;
     }
 }
 
