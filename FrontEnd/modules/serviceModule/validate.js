@@ -20,6 +20,7 @@ function validateService(){
                             if(serviceDate != ''){
                                 if(total != '$' && total != '$'){
                                     validateDNI(dni);
+                                    
                                 }else{
                                     alert('The field Total must be fill')
                                     document.getElementById('total').focus()        
@@ -75,7 +76,7 @@ function validateDNI(dni){
             total = total % 10 ? 10 - total % 10 : 0;
 
             if (cad.charAt(longitud - 1) == total) {
-                alert('All fields are correct!')
+                postService();
             } else {
                 alert('Incorrect DNI')
                 document.getElementById('dni').focus();
@@ -86,6 +87,48 @@ function validateDNI(dni){
         document.getElementById('dni').focus()
     }
 }
+
+function postService(){
+    var brand,model,plate,color,origin,destiny,distance,servDate,DNI,total;
+    brand = $('#brand').val();
+    model = $('#model').val();
+    plate = $('#plate').val();
+    color = $('#color').val();
+    origin = $('#origin').val();
+    destiny = $('#destiny').val();
+    distance = $('#result').val();
+    servDate = $('#service_date').val();
+    DNI = $('#dni').val();
+    total = $('#total').val();
+    var service = new Object();
+    service.servid = 0;
+    service.servBrand = brand;
+    service.servModel = model;
+    service.servPlate = plate;
+    service.servColor = color;
+    service.servOrig = origin;
+    service.servDest = destiny;
+    service.servDistance = distance;
+    service.serviceDate = servDate;
+    service.servCost = total;
+    service.servUnity = "0";
+
+    console.log(JSON.stringify(service));
+
+    jQuery.ajax({
+        'type': 'POST',
+        'url': 'http://localhost:8080/Crane/Service',
+        'contentType': 'application/json',
+        'data': JSON.stringify(service),
+        'dataType': 'json'
+        });
+
+    alert('Servicio agregado correctamente');
+    location.reload();
+    
+
+}
+
 
 function cargar(){
     const URLAPI = "http://localhost:8080/Crane/Service";
@@ -121,7 +164,7 @@ function cargar(){
 }
 
 function getDistance(){
-    var apiKey= "";
+    var apiKey= "AIzaSyDgvZ2fd-Ic_8HvT2ZoAGGC-l76wc_D9mo";
     var origin = document.getElementById('origin').value;
     var destiny = document.getElementById('destiny').value;
     var URL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+origin+"&destinations="+destiny+"&key="+apiKey;
