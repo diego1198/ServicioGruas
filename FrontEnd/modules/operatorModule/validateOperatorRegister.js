@@ -57,6 +57,29 @@ function validateOperatorRegister() {
 
             if (cad.charAt(longitud - 1) == total) {
                 // alert("Cedula Válida");
+                const form = document.getElementById('formOperator');
+                var name = document.getElementById("name").value;
+                var lastname = document.getElementById("lastname").value;
+                var id = document.getElementById("id").value;
+                var license = document.getElementById("license").value;
+                var craneManager = parseInt(document.getElementById("craneManager").value);
+
+                var operator = new Object();
+                operator.opid = id;
+                operator.cmid = craneManager;
+                operator.opname = name;
+                operator.oplastname = lastname;
+                operator.oplicense = license;
+
+                console.log(JSON.stringify(operator));
+                return jQuery.ajax({
+                    'type': 'POST',
+                    'url': 'http://localhost:8080/Gruas/serrvice/CreateOperator',
+                    'contentType': 'application/json',
+                    'data': JSON.stringify(operator),
+                    'dataType': 'json'
+                });
+                alert('Operator agregado correctamente');
             } else {
                 alert("Cedula Inválida");
                 return false;

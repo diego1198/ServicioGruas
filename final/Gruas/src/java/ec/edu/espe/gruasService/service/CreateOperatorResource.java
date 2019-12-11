@@ -68,12 +68,14 @@ public class CreateOperatorResource {
             PreparedStatement ps;
             ResultSet rs;
             ps = con.prepareStatement("INSERT INTO operator values(?,?,?,?,?)");
+       
             ps.setString(1, operator.getOperatorId());
             ps.setInt(2, operator.getCraneManagerId());
             ps.setString(3, operator.getOperatorName());
             ps.setString(4, operator.getOperatorLastName());
             ps.setString(5, operator.getOperatorLicense());
             ps.executeUpdate();
+          
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -90,6 +92,7 @@ public class CreateOperatorResource {
    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public String putText(Operator operator) {
+        
         return SetOperatorId(new Operator(operator.getOperatorId(), operator.getCraneManagerId(), operator.getOperatorName(),operator.getOperatorLastName(),operator.getOperatorLicense()));
     }
 }

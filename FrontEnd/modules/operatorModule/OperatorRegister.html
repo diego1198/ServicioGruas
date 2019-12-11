@@ -42,8 +42,7 @@
             <h2> <b>ENTER YOUR INFORMATION</b> </h2>
         </div>
 
-        <form class="needs-validation" action="/modules/operatorModule/validateOperatorRegister.js" method="POST" id="formOperator" onsubmit="return
-                validateOperatorRegister();">
+        <form class="needs-validation" action="/modules/operatorModule/validateOperatorRegister.js" method="POST" id="formOperator">
 
             <div class="col-md-6 mb-3">
                 <label for="model">Name: </label>
@@ -81,13 +80,14 @@
                 <input class="form-control" type="text" id="craneManager" placeholder="1719568378"><br>
             </div>
 
-            <div class="col-md-6 mb-3">
-                <center>
-                    <input class="btn btn-success btn-lg" type="submit" value="Create" id="submit">
-                </center>
-            </div>
+
 
         </form>
+        <div class="col-md-6 mb-3">
+            <center>
+                <input class="btn btn-success btn-lg" type="button" onclick="validateOperatorRegister()" value="Create" id="submit">
+            </center>
+        </div>
     </div>
 
 
@@ -100,8 +100,8 @@
             <table class="table table-light">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Id</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Id</th>
 
                     </tr>
                 </thead>
