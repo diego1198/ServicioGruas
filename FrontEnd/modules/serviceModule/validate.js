@@ -88,7 +88,7 @@ function validateDNI(dni){
 }
 
 function cargar(){
-    const URLAPI = "http://localhost:8080/gruas/Service";
+    const URLAPI = "http://localhost:8080/Crane/Service";
     const container = document.getElementById('tableService');
     let contentHTML = '';
     var i=0;
@@ -109,6 +109,7 @@ function cargar(){
                     <td>${service.servOrig}</td>
                     <td>${service.servDest}</td>
                     <td>${service.servCost}</td>
+                    <td>${service.servDistance}</td>
                     <td><a data-toggle='tooltip' data-placement='top' title='Update' style='margin-right:5px' class='btn btn-success btn-sm'>
                     <i class="material-icons">build</i>
                     </a></td>
