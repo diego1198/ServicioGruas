@@ -1,5 +1,5 @@
 function cargar(){
-    const URLAPI = "http://localhost:8080/gruas/Clients";
+    const URLAPI = "http://localhost:8080/Crane/Clients";
     const container = document.getElementById('tableClient');
     let contentHTML = '';
     var i=0;

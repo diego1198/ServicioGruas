@@ -1,5 +1,5 @@
 function cargar(){
-    const URLAPI = "http://localhost:8080/gruas/Vehicles";
+    const URLAPI = "http://localhost:8080/Crane/Vehicles";
     const container = document.getElementById('tableVehicle');
     let contentHTML = '';
     var i=0;
@@ -27,6 +27,41 @@ function cargar(){
         })
 }
 
+function registrar(){
+        var locationForm = document.getElementById('vehicle-form');
+
+        // Listen for submiot
+        locationForm.addEventListener('submit', geocode);
+
+
+        function geocode(e) {
+            // Prevent actual submit
+            e.preventDefault();
+
+            var id = document.getElementById('id').value;
+            var model = document.getElementById('model').value;
+            var brand = document.getElementById('brand').value;
+            var color = document.getElementById('color').value;
+            var plate = document.getElementById('plate').value;
+            var type = document.getElementById('type').value;
+            console.log(id);
+            console.log(model);
+            console.log(brand);
+            console.log(color);
+            console.log(plate);
+            console.log(type);
+            axios.get('http://localhost:8080/Crane/Vehicles/'+id+'/'+model+'/'+brand+'/'+color+'/'+plate+'/'+type)
+                    .then(function (response) {
+                        // Log full response
+                        console.log(response);
+                        // Formatted Address                
+                        alert("dato Registrado");
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+        }
+}
 
 function validateRegisterVehicle() {
     var id, model, brand, color, plate, type;

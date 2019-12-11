@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
     <script type="text/javascript" src="../../js/bootstrap.js"></script>
     <script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
-    <script src="./vehicle.js"></script>
+    <script type="text/javascript" src="./vehicle.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Register Vehicle</title>
 </head>
 
@@ -36,52 +37,50 @@
         <div class="py-5 text-center">
             <h2><b>Register Vehicle</b></h2>
         </div>
-        <form action="" id="formVehicle">
+        <form class="col-12" id="vehicle-form" method="post">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="form-group">
                             <label for="id">ID: </label>
-                            <input type="text" class="form-control" id="id" placeholder="172812L" required>
+                            <input type="text" class="form-control" id="id" placeholder="127" required>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="form-group">
                             <label for="model">Model:</label>
                             <input type="text" class="form-control" id="model" placeholder="MAC" required>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="form-group">
                             <label for="brand">Brand:</label>
                             <input type="text" class="form-control" id="brand" placeholder="XL-200" required>
                     </div>
-                     <div class="col-md-6 mb-3">
+                     <div class="form-group">
                                 <label for="color">Color</label>
                                 <select id="color" name="color" class="form-control">
                                     <option value="" class="dark">Choose a color</option>
-                                    <option value="blue">Blue</option>
-                                    <option value="black">Black</option>
-                                    <option value="white">White</option>
-                                    <option value="red">Red</option>
+                                    <option value="BLUE">Blue</option>
+                                    <option value="BLACK">Black</option>
+                                    <option value="WHITE">White</option>
+                                    <option value="RED">Red</option>
                                 </select>
                             </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="form-group">
                             <label for="plate">Plate:</label>
-                            <input type="text" class="form-control" id="plate" placeholder="PQR-0234" required>
+                            <input type="text" class="form-control" id="plate" placeholder="PQR0234" required>
                     </div>
                     <div class="col-md-6 mb-3">
                             <label for="type">Type:</label>
                             <select id="type" name="type" class="form-control">
                                 <option value="" class="dark">Choose a type vehicle</option>
-                                <option value="crane">Crane</option>
-                                <option value="truck">Truck</option>
+                                <option value="CRANE">Crane</option>
+                                <option value="CAMION">Truck</option>
                             </select>
                             <br>
                     </div>
-                    <div class="container">
-                        <center>
-                            <button class="btn btn-success btn-lg" id="save" onclick="validateRegisterVehicle()">Register</button>
-                            <button class="btn btn-success btn-lg" type="reset" name="clear" id="clear">Clear</button><br><br>
-                        </center>
-                    </div>
                 </div>
             </div>
+            <center>
+                            <button type="submit" class="btn btn-success btn-lg" id="Registrar">Registrar</button>
+                            <button class="btn btn-success btn-lg" type="reset" name="clear" id="clear">Clear</button><br><br>
+            </center>
         </form>
         <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
@@ -102,6 +101,41 @@
     <script src="../../js/popper.min"></script>
     <script src="../../js/bootstrap.min"></script>
     <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script>
+        var locationForm = document.getElementById('vehicle-form');
+
+        // Listen for submiot
+        locationForm.addEventListener('submit', geocode);
+
+
+        function geocode(e) {
+            // Prevent actual submit
+            e.preventDefault();
+
+            var id = document.getElementById('id').value;
+            var model = document.getElementById('model').value;
+            var brand = document.getElementById('brand').value;
+            var color = document.getElementById('color').value;
+            var plate = document.getElementById('plate').value;
+            var type = document.getElementById('type').value;
+            console.log(id);
+            console.log(model);
+            console.log(brand);
+            console.log(color);
+            console.log(plate);
+            console.log(type);
+            axios.get('http://localhost:8080/Crane/Vehicles/'+id+'/'+model+'/'+brand+'/'+color+'/'+plate+'/'+type)
+                    .then(function (response) {
+                        // Log full response
+                        console.log(response);
+                        // Formatted Address                
+                        alert("dato Registrado");
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+        }
+    </script>
 </body>
 
 </html>
