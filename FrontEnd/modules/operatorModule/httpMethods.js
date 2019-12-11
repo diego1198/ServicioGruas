@@ -1,21 +1,23 @@
-function getAllCraneManager() {
+function cargar() {
+    const URLAPI = "http://localhost:8080/Gruas/serrvice/AllCraneManager";
+    const container = document.getElementById('tableService');
+    let contentHTML = '';
+    var i = 0;
+    fetch(URLAPI)
+        .then(res => res.json())
+        .then((json) => {
+            container.innerHTML = '';
+            for (const product of json) {
+                container.innerHTML += `
 
-    var contenido = document.querySelector('#contenido');
-    fetch('http://localhost:8080/Gruas/V1.0/AllCraneManager')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
+
+                <tr>
+                    
+                    <td>${product.cmUser}</td>
+                    <td>${product.cmid}</td>
+                </tr>
+                `;
+
+            }
         })
-
-}
-
-var invocation = new XMLHttpRequest();
-var url = 'http://localhost:8080/Gruas/V1.0/AllCraneManager';
-
-function callOtherDomain() {
-    if (invocation) {
-        invocation.open('GET', url, true);
-        invocation.onreadystatechange = handler;
-        invocation.send();
-    }
 }
