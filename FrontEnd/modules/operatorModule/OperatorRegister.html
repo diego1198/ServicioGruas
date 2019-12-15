@@ -14,7 +14,7 @@
 
 </head>
 
-<body onload="cargar()">
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             <img src="../../images/logoGruas.png" width="30" height="30" class="d-inline-block align-top" alt=""> ServiGruas
@@ -39,7 +39,7 @@
 
     <div class="container">
         <div class="py-5 text-center">
-            <h2> <b>ENTER YOUR INFORMATION</b> </h2>
+            <h2> <b>Operator</b> </h2>
         </div>
 
         <form class="needs-validation" action="/modules/operatorModule/validateOperatorRegister.js" method="POST" id="formOperator">
@@ -75,12 +75,22 @@
                         <option value="11">G</option>
                     </select>
             </div>
+
             <div class="col-md-6 mb-3">
                 <label for="model">Crane Manager: </label>
-                <input class="form-control" type="text" id="craneManager" placeholder="1719568378"><br>
+                <select id="cmid" class="form-control">
+                    <script type="text/javascript">
+                     window.onload= function listar(){
+                        
+                        getCraneManager();
+                     }
+                    </script>
+                    
+               </select>
+
+
+
             </div>
-
-
 
         </form>
         <div class="col-md-6 mb-3">
@@ -89,31 +99,21 @@
             </center>
         </div>
     </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
 
-
-    <div class="container">
-        <div class="py-5 text-center">
-            <h2><b>Crane Manager</b></h2>
-        </div>
-        <div class="mt-5">
-
-            <table class="table table-light">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Id</th>
-
-                    </tr>
-                </thead>
-                <tbody id="tableService">
-
-
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-
+            <li class="page-item"><a class="page-link" href="#">List</a></li>
+            <li class="page-item"><a class="page-link" href="#">Update</a></li>
+            <li class="page-item"><a class="page-link" href="#">Delete</a></li>
+            <li class="page-item"><a class="page-link" href="#">graphic</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 
     <footer class="footer text-faded text-center py-5">
         <div class="container">

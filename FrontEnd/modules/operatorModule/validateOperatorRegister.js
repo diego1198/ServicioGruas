@@ -74,7 +74,7 @@ function validateOperatorRegister() {
                 console.log(JSON.stringify(operator));
                 return jQuery.ajax({
                     'type': 'POST',
-                    'url': 'http://localhost:8080/Gruas/serrvice/CreateOperator',
+                    'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator',
                     'contentType': 'application/json',
                     'data': JSON.stringify(operator),
                     'dataType': 'json'
@@ -87,31 +87,4 @@ function validateOperatorRegister() {
         }
     }
 
-}
-
-
-
-function validateRegisterVehicle() {
-    var id, model, brand, color, plate, type;
-
-    id = document.getElementById('id').value;
-    model = document.getElementById('model').value;
-    brand = document.getElementById('brand').value;
-    color = document.getElementById('color').value;
-    plate = document.getElementById('plate').value;
-    type = document.getElementById('type').value;
-
-    if (id === '' || model === '' || brand === '' || color === '' || plate === '' || type === '') {
-        alert('fill in the fields ');
-        return false;
-    } else if (model.length > 20) {
-        alert('Model is large');
-        return false;
-    } else if (brand.length > 20) {
-        alert('brand is large');
-        return false;
-    } else if (plate.length > 8 && plate.length < 8) {
-        alert('Insert plate correct');
-        return false;
-    }
 }
