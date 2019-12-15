@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author henry
  */
-@Path("AllCraneManager")
+@Path("CraneManager")
 public class CraneManagerResource {
 
     @Context
