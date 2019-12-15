@@ -48,23 +48,23 @@ public class OperatorResource {
      * @return an instance of ec.edu.espe.gruasService.model.Operator
      */
     @GET
-    @Path("{id}")
+    @Path("{idCraneManager}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList <Operator> getJson(@PathParam("id") int id) throws SQLException {
-         ArrayList <Operator> aux= new  ArrayList ();
-         aux=getOperator(id);
-         return aux;
+    public ArrayList<Operator> getJson(@PathParam("idCraneManager") int id) throws SQLException {
+        ArrayList<Operator> aux = new ArrayList();
+        aux = getOperator(id);
+        return aux;
     }
-    
-     @GET
+
+    @GET
     @Path("{typeLicense}")
     @Produces(MediaType.TEXT_PLAIN)
     public String getLicenseNumber(@PathParam("typeLicense") String license) throws SQLException {
-        
-        ArrayList<Operator> op= new ArrayList();
-        op=getNumberOperatorLicense(license);
-        String  tamanio =String.valueOf(op.size());
-        
+
+        ArrayList<Operator> op = new ArrayList();
+        op = getNumberOperatorLicense(license);
+        String tamanio = String.valueOf(op.size());
+
         return tamanio;
     }
 
@@ -96,6 +96,7 @@ public class OperatorResource {
     /*FUNCIONES*/
     public String SetOperatorId(Operator operator) {
 
+        String mensaje="";
         DBConnect conec = new DBConnect();
         try {
 
@@ -110,14 +111,17 @@ public class OperatorResource {
             ps.setString(3, operator.getOperatorName());
             ps.setString(4, operator.getOperatorLastName());
             ps.setString(5, operator.getOperatorLicense());
-            ps.executeUpdate();
+          int n = ps.executeUpdate();
+            if (n > 0) {//comprueba que realmente se haya registrado en la base de datos
+                mensaje = "successful license update";
+            }
 
         } catch (Exception e) {
-            System.out.println(e);
+            mensaje = e.toString();
         }
 
         conec.finished();
-        return "registered operator";
+        return mensaje;
     }
 
     public String deleteOperatorId(String id) {
@@ -132,6 +136,7 @@ public class OperatorResource {
             ps = con.prepareStatement("DELETE FROM `gruas`.`operator` WHERE opid=?");
             ps.setString(1, id);
 
+           
             if (!ps.execute()) {
                 response = "operator successfully removed";
             } else {
@@ -139,7 +144,7 @@ public class OperatorResource {
             }
 
         } catch (SQLException e) {
-            System.out.println(e);
+            response=e.toString();
         }
 
         conec.finished();
@@ -156,7 +161,6 @@ public class OperatorResource {
             con = conec.getConnection();
             PreparedStatement ps;
 
-     
             ps = con.prepareStatement("UPDATE `gruas`.`operator` "
                     + "SET `opid` = ?,"
                     + "`cmid` = ?,"
@@ -177,25 +181,26 @@ public class OperatorResource {
             }
 
         } catch (Exception e) {
-            mensaje=e.toString();   
+            mensaje = e.toString();
         }
         conec.finished();
         return mensaje;
 
     }
-    
+
     public ArrayList getOperator(int cmid) throws SQLException {
         DBConnect connect = new DBConnect();
         PreparedStatement state;
         state = connect.getConnection().prepareStatement("SELECT * from operator where cmid=? ");
         state.setInt(1, cmid);
         ResultSet rs = state.executeQuery();
-        Operator operator;
+        
 
+        Operator operator;
         ArrayList<Operator> operatorList = new ArrayList();
 
         while (rs.next()) {
-            operator = new Operator(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),rs.getString(5));
+            operator = new Operator(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
             operatorList.add(operator);
         }
         rs.close();
@@ -203,8 +208,8 @@ public class OperatorResource {
         return operatorList;
 
     }
-    
-     public ArrayList getNumberOperatorLicense(String license) throws SQLException {
+
+    public ArrayList getNumberOperatorLicense(String license) throws SQLException {
         DBConnect connect = new DBConnect();
         PreparedStatement state;
         state = connect.getConnection().prepareStatement("SELECT * from operator where oplicense=? ");
@@ -215,7 +220,7 @@ public class OperatorResource {
         ArrayList<Operator> operator = new ArrayList();
 
         while (rs.next()) {
-            serviceClient = new Operator(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),rs.getString(5));
+            serviceClient = new Operator(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
             operator.add(serviceClient);
         }
         rs.close();
