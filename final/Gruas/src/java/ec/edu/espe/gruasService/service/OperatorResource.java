@@ -90,7 +90,6 @@ public class OperatorResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Path("{idOperator}")
     public String deleteOperatorText(@PathParam("idOperator") String op) {
-
         return deleteOperatorId(op);
     }
 

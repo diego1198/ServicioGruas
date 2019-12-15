@@ -143,7 +143,7 @@ function deleteOperator() {
     console.log(JSON.stringify(operator));
     return jQuery.ajax({
         'type': 'DELETE',
-        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator',
+        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/',
         'contentType': 'application/json',
         'data': JSON.stringify(operator),
         'dataType': 'json'
