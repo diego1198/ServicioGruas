@@ -11,7 +11,7 @@ import java.util.Set;
  *
  * @author henry
  */
-@javax.ws.rs.ApplicationPath("serrvice")
+@javax.ws.rs.ApplicationPath("service")
 public class ApplicationConfig extends javax.ws.rs.core.Application {
 
     @Override
@@ -37,6 +37,7 @@ public class ApplicationConfig extends javax.ws.rs.core.Application {
         resources.add(ec.edu.espe.gruasService.service.DeleteOperatorResource.class);
         resources.add(ec.edu.espe.gruasService.service.NumberOperatorLicenceResource.class);
         resources.add(ec.edu.espe.gruasService.service.OperatorByIdResource.class);
+        resources.add(ec.edu.espe.gruasService.service.OperatorResource.class);
         resources.add(ec.edu.espe.gruasService.service.ReportByClientIdResource.class);
         resources.add(ec.edu.espe.gruasService.service.ServiceResource.class);
         resources.add(ec.edu.espe.gruasService.service.UpdateLicenseByIdResource.class);
