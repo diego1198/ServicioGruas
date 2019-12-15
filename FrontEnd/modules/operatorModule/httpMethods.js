@@ -55,7 +55,7 @@ function getOperadorByID() {
 }
 
 
-
+/*lista todos los administradores de grúas registrados */
 function getCraneManager() {
     const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/CraneManager";
     const container = document.getElementById('cmid');
@@ -80,6 +80,7 @@ function getCraneManager() {
 
 }
 
+/* agrega un operador */
 function postOperator() {
     const form = document.getElementById('formOperator');
     var name = document.getElementById("name").value;
@@ -106,7 +107,7 @@ function postOperator() {
     alert('Operador agregado correctamente');
 
 }
-
+/* actualizar los datos de un operador */
 function putOperator() {
     const form = document.getElementById('formOperator');
     var name = document.getElementById("name").value;
@@ -125,6 +126,23 @@ function putOperator() {
     console.log(JSON.stringify(operator));
     return jQuery.ajax({
         'type': 'PUT',
+        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator',
+        'contentType': 'application/json',
+        'data': JSON.stringify(operator),
+        'dataType': 'json'
+    });
+    alert('Operador agregado correctamente');
+}
+
+/*elimina un operador */
+function deleteOperator() {
+    const form = document.getElementById('formOperator');
+    var id = document.getElementById("idOperator").value;
+    var operator = new Object();
+    operator.operatorId = id;
+    console.log(JSON.stringify(operator));
+    return jQuery.ajax({
+        'type': 'DELETE',
         'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator',
         'contentType': 'application/json',
         'data': JSON.stringify(operator),
