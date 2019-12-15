@@ -48,16 +48,17 @@
 
                 <div class="col-md-2 mb-3">
                     <br>
-                    <button class="btn btn-md btn-primary" type="button" onclick="getDistance()">Buscar</button>
+                    <button class="btn btn-success btn-lg" type="button" onclick="getOperadorByID()">Buscar</button>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="">ID Crane Manager:</label>
-                    <input class="form-control" type="text" id="name" placeholder="Example:1719568378"> <br>
+                    <label for="">Id Operator:</label>
+                    <input class="form-control" type="text" id="idOperator" placeholder="Example:1719568378"> <br>
                 </div>
             </div>
 
+
+
             <div class="col-md-6 mb-3">
-                <label for="model">Name: </label>
                 <input class="form-control" type="text" id="name" placeholder="Henry"> <br>
             </div>
             <div class="col-md-6 mb-3">
@@ -99,9 +100,6 @@
                     </script>
                     
                </select>
-
-
-
             </div>
 
         </form>
@@ -110,31 +108,56 @@
                 <input class="btn btn-success btn-lg" type="button" onclick="validateOperatorRegister()" value="Update" id="submit">
             </center>
         </div>
-    </div>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
 
-            <li class="page-item"><a class="page-link" href="/modules/operatorModule/OperatorRegister.html">Add</a></li>
-            <li class="page-item"><a class="page-link" href="/modules/operatorModule/listOperator.html">List</a></li>
-            <li class="page-item"><a class="page-link" href="/modules/operatorModule/UpdateOperator.html">Update</a></li>
-            <li class="page-item"><a class="page-link" href="/modules/operatorModule/DeleteOperator.html">Delete</a></li>
-            <li class="page-item"><a class="page-link" href="/modules/operatorModule/graphic.html">graphic</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
-
-    <footer class="footer text-faded text-center py-5">
         <div class="container">
-            <p class="m-0 small">
-                <h4>Copyright &copy; ESPE - Gruas Service 2019</h4>
-            </p>
+            <div class="py-5 text-center">
+                <h2><b>Operator</b></h2>
+            </div>
+            <div class="mt-5">
+
+                <table class="table table-light">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Operator Id</th>
+                            <th scope="col">Crane MAnager Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">License</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="tableOperator">
+
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-    </footer>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+
+                <li class="page-item"><a class="page-link" href="/modules/operatorModule/OperatorRegister.html">Add</a></li>
+                <li class="page-item"><a class="page-link" href="/modules/operatorModule/listOperator.html">List</a></li>
+                <li class="page-item"><a class="page-link" href="/modules/operatorModule/UpdateOperator.html">Update</a></li>
+                <li class="page-item"><a class="page-link" href="/modules/operatorModule/DeleteOperator.html">Delete</a></li>
+                <li class="page-item"><a class="page-link" href="/modules/operatorModule/graphic.html">graphic</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+        <footer class="footer text-faded text-center py-5">
+            <div class="container">
+                <p class="m-0 small">
+                    <h4>Copyright &copy; ESPE - Gruas Service 2019</h4>
+                </p>
+            </div>
+        </footer>
 </body>
 
 

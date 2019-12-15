@@ -48,9 +48,9 @@ public class OperatorResource {
      * @return an instance of ec.edu.espe.gruasService.model.Operator
      */
     @GET
-    @Path("{id}")
+    @Path("{idOperator}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Operator> getJson(@PathParam("id") String id) throws SQLException {
+    public ArrayList<Operator> getJson(@PathParam("idOperator") String id) throws SQLException {
         ArrayList<Operator> aux = new ArrayList();
         aux = getOperatorId(id);
         return aux;
@@ -204,6 +204,7 @@ public class OperatorResource {
         ArrayList<Operator> operatorList = new ArrayList();
 
         while (rs.next()) {
+            
             operator = new Operator(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
             operatorList.add(operator);
         }

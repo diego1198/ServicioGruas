@@ -19,29 +19,36 @@ function listarALLCraneManagerTable() {
         })
 }
 
+/*obtiene un operador por id */
+function getOperadorByID() {
 
-function getOperadorByCraneManager() {
-
-    var idCraneManager = document.getElementById('tableService').value
-    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/" + idCraneManager;
-    const container = document.getElementById('tableService');
+    var idOperator = document.getElementById('idOperator').value;
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/" + idOperator;
+    const container = document.getElementById('tableOperator');
     let contentHTML = '';
     var i = 0;
     fetch(URLAPI)
         .then(res => res.json())
         .then((json) => {
-            container.innerHTML = '';
-            for (const product of json) {
-                container.innerHTML += `
-                <tr>  
-                    <td>${product.cmUser}</td>
-                    <td>${product.cmid}</td>
-                </tr>
-                `;
 
-            }
+            const operator = json;
+            console.log(URLAPI);
+            console.log(operator);
+            container.innerHTML = '';
+            container.innerHTML += `
+                <tr>  
+                   <td>${operator[0].operatorId}</td>
+                   <td>${operator[0].craneManagerId}</td>
+                   <td>${operator[0].operatorName}</td>
+                   <td>${operator[0].operatorLastName}</td>
+                   <td>${operator[0].operatorLicense}</td>
+                </tr>
+            `;
+
+
         })
 }
+
 
 
 function getCraneManager() {
