@@ -52,11 +52,11 @@ public class ReportResource {
     public ArrayList <Report> getJson(@PathParam("idClient") String id) throws SQLException {
         
          ArrayList <Report> aux= new  ArrayList ();
-         aux=showRegisterList(id);
+         aux=getReportIdClient(id);
          return aux;
     }
 
-    public ArrayList showRegisterList(String idClient) throws SQLException {
+    public ArrayList getReportIdClient(String idClient) throws SQLException {
         DBConnect connect = new DBConnect();
         PreparedStatement state;
         state = connect.getConnection().prepareStatement("SELECT * from report where cliId=? ");
