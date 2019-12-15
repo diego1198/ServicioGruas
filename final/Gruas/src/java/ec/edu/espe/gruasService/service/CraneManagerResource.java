@@ -7,6 +7,7 @@ package ec.edu.espe.gruasService.service;
 
 import ec.edu.espe.gruasService.model.CraneManager;
 import ec.edu.espe.gruasService.model.DBConnect;
+import ec.edu.espe.gruasService.model.Operator;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -69,8 +71,39 @@ public class CraneManagerResource {
      * PUT method for updating or creating an instance of CraneManagerResource
      * @param content representation for the resource
      */
+    
+    @GET
+    @Path("{idCraneManager}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Operator> getJson(@PathParam("idCraneManager") int id) throws SQLException {
+        ArrayList<Operator> aux = new ArrayList();
+        aux = getOperator(id);
+        return aux;
+    }
+    
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(CraneManager content) {
+    }
+    /*Funciones*/
+     public ArrayList getOperator(int cmid) throws SQLException {
+        DBConnect connect = new DBConnect();
+        PreparedStatement state;
+        state = connect.getConnection().prepareStatement("SELECT * from operator where cmid=? ");
+        state.setInt(1, cmid);
+        ResultSet rs = state.executeQuery();
+        
+
+        Operator operator;
+        ArrayList<Operator> operatorList = new ArrayList();
+
+        while (rs.next()) {
+            operator = new Operator(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            operatorList.add(operator);
+        }
+        rs.close();
+        state.close();
+        return operatorList;
+
     }
 }

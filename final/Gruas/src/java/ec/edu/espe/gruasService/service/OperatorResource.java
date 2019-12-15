@@ -48,13 +48,14 @@ public class OperatorResource {
      * @return an instance of ec.edu.espe.gruasService.model.Operator
      */
     @GET
-    @Path("{idCraneManager}")
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Operator> getJson(@PathParam("idCraneManager") int id) throws SQLException {
+    public ArrayList<Operator> getJson(@PathParam("id") String id) throws SQLException {
         ArrayList<Operator> aux = new ArrayList();
-        aux = getOperator(id);
+        aux = getOperatorId(id);
         return aux;
     }
+    
    
     @GET
     @Path("{typeLicense}")
@@ -189,26 +190,7 @@ public class OperatorResource {
 
     }
 
-    public ArrayList getOperator(int cmid) throws SQLException {
-        DBConnect connect = new DBConnect();
-        PreparedStatement state;
-        state = connect.getConnection().prepareStatement("SELECT * from operator where cmid=? ");
-        state.setInt(1, cmid);
-        ResultSet rs = state.executeQuery();
-        
-
-        Operator operator;
-        ArrayList<Operator> operatorList = new ArrayList();
-
-        while (rs.next()) {
-            operator = new Operator(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
-            operatorList.add(operator);
-        }
-        rs.close();
-        state.close();
-        return operatorList;
-
-    }
+   
     
     public ArrayList getOperatorId(String id) throws SQLException {
         DBConnect connect = new DBConnect();
