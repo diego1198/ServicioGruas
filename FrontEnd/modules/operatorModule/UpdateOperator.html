@@ -44,6 +44,18 @@
 
         <form class="needs-validation" action="/modules/operatorModule/validateOperatorRegister.js" method="POST" id="formOperator">
 
+            <div class="row">
+
+                <div class="col-md-2 mb-3">
+                    <br>
+                    <button class="btn btn-md btn-primary" type="button" onclick="getDistance()">Buscar</button>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="">ID Crane Manager:</label>
+                    <input class="form-control" type="text" id="name" placeholder="Example:1719568378"> <br>
+                </div>
+            </div>
+
             <div class="col-md-6 mb-3">
                 <label for="model">Name: </label>
                 <input class="form-control" type="text" id="name" placeholder="Henry"> <br>
@@ -95,7 +107,7 @@
         </form>
         <div class="col-md-6 mb-3">
             <center>
-                <input class="btn btn-success btn-lg" type="button" onclick="validateOperatorRegister()" value="Create" id="submit">
+                <input class="btn btn-success btn-lg" type="button" onclick="validateOperatorRegister()" value="Update" id="submit">
             </center>
         </div>
     </div>
@@ -104,6 +116,7 @@
             <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
             </li>
+
             <li class="page-item"><a class="page-link" href="/modules/operatorModule/OperatorRegister.html">Add</a></li>
             <li class="page-item"><a class="page-link" href="/modules/operatorModule/listOperator.html">List</a></li>
             <li class="page-item"><a class="page-link" href="/modules/operatorModule/UpdateOperator.html">Update</a></li>

@@ -19,6 +19,31 @@ function listarALLCraneManagerTable() {
         })
 }
 
+
+function getOperadorByCraneManager() {
+
+    var idCraneManager = document.getElementById('tableService').value
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/" + idCraneManager;
+    const container = document.getElementById('tableService');
+    let contentHTML = '';
+    var i = 0;
+    fetch(URLAPI)
+        .then(res => res.json())
+        .then((json) => {
+            container.innerHTML = '';
+            for (const product of json) {
+                container.innerHTML += `
+                <tr>  
+                    <td>${product.cmUser}</td>
+                    <td>${product.cmid}</td>
+                </tr>
+                `;
+
+            }
+        })
+}
+
+
 function getCraneManager() {
     const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/CraneManager";
     const container = document.getElementById('cmid');

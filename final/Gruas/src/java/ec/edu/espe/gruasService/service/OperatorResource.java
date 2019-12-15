@@ -55,7 +55,7 @@ public class OperatorResource {
         aux = getOperator(id);
         return aux;
     }
-
+   
     @GET
     @Path("{typeLicense}")
     @Produces(MediaType.TEXT_PLAIN)
@@ -93,6 +93,7 @@ public class OperatorResource {
         return deleteOperatorId(op);
     }
 
+   
     /*FUNCIONES*/
     public String SetOperatorId(Operator operator) {
 
@@ -193,6 +194,27 @@ public class OperatorResource {
         PreparedStatement state;
         state = connect.getConnection().prepareStatement("SELECT * from operator where cmid=? ");
         state.setInt(1, cmid);
+        ResultSet rs = state.executeQuery();
+        
+
+        Operator operator;
+        ArrayList<Operator> operatorList = new ArrayList();
+
+        while (rs.next()) {
+            operator = new Operator(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            operatorList.add(operator);
+        }
+        rs.close();
+        state.close();
+        return operatorList;
+
+    }
+    
+    public ArrayList getOperatorId(String id) throws SQLException {
+        DBConnect connect = new DBConnect();
+        PreparedStatement state;
+        state = connect.getConnection().prepareStatement("SELECT * from operator where opid=? ");
+        state.setString(1, id);
         ResultSet rs = state.executeQuery();
         
 
