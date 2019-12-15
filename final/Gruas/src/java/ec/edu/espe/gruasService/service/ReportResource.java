@@ -28,7 +28,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author henry
  */
-@Path("ReportByCliendId")
+@Path("Report")
 public class ReportResource {
 
     @Context
