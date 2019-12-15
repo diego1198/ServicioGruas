@@ -44,60 +44,45 @@
 
         <form class="needs-validation" action="/modules/operatorModule/validateOperatorRegister.js" method="POST" id="formOperator">
 
-            <div class="col-md-6 mb-3">
-                <label for="model">Name: </label>
-                <input class="form-control" type="text" id="name" placeholder="Henry"> <br>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="model">Last Name: </label>
-                <input class="form-control" type="text" id="lastname" placeholder="Aguaiza"> <br>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="model">Id: </label>
-                <input class="form-control" type="text" id="id" placeholder="1719568378"><br>
-            </div>
+            <div class="row">
 
-            <div class="col-md-6 mb-3">
-                <label for="model">Driver's license: </label>
-
-                <select id="license" class="form-control">
-                        <option value="0">SELECT A LICENSE</option>
-                        <option value="1">A</option>
-                        <option value="2">B</option>
-                        <option value="3">F</option>
-                        <option value="4">A1</option>
-                        <option value="5">C</option>
-                        <option value="6">C1</option>
-                        <option value="7">D</option>
-                        <option value="8">D1</option>
-                        <option value="9">E</option>
-                        <option value="10">E1</option>
-                        <option value="11">G</option>
-                    </select>
+                <div class="col-md-2 mb-3">
+                    <br>
+                    <button class="btn btn-success btn-lg" type="button" onclick="listOperatorByCraneManager()">List</button>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="">Id Crane Manager:</label>
+                    <input class="form-control" type="text" id="idCraneManager" placeholder="Example:1719568378"> <br>
+                </div>
             </div>
 
-            <div class="col-md-6 mb-3">
-                <label for="model">Crane Manager: </label>
-                <select id="cmid" class="form-control">
-                    <script type="text/javascript">
-                     window.onload= function listar(){
-                        
-                        getCraneManager();
-                     }
-                    </script>
-                    
-               </select>
+            <div class="container">
+
+                <div class="mt-5">
+
+                    <table class="table table-light">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Crane Manager Id </th>
+                                <th scope="col">Operator Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">License</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableOperator">
 
 
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
+
+
 
         </form>
-        <div class="col-md-6 mb-3">
-            <center>
-                <input class="btn btn-success btn-lg" type="button" onclick="validateOperatorRegister()" value="Create" id="submit">
-            </center>
-        </div>
+
     </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
