@@ -22,35 +22,35 @@ function validateService(){
                                     validateDNI(dni);
                                     
                                 }else{
-                                    alert('The field Total must be fill')
+                                    alert('El campo total debe estar lleno!!')
                                     document.getElementById('total').focus()        
                                 }
                             }else{
-                                alert('The field Service Date must be fill')
+                                alert('El campo fecha de servicio debe estar lleno')
                                 document.getElementById('service_date').focus()    
                             }
                         }else{
-                            alert('The field destiny must be fill')
+                            alert('El campo destino debe estar lleno')
                             document.getElementById('destiny').focus()        
                         }
                     }else{
-                        alert('The field origin must be fill')
+                        alert('El campo origen debe estar lleno')
                         document.getElementById('origin').focus()    
                     }
                 }else{
-                    alert('The field color must be fill')
+                    alert('El campo color debe estar lleno')
                     document.getElementById('color').focus()        
                 }
             }else{
-                alert('The field plate must be fill')
+                alert('El campo placa debe estar lleno!!')
                 document.getElementById('plate').focus()    
             }
         }else{
-            alert('The field model must be fill')
+            alert('El campo modelo debe estar lleno!!')
             document.getElementById('model').focus()    
         }
     }else{
-        alert('The field brand must be fill')
+        alert('El campo marca debe estar lleno!!')
         document.getElementById('brand').focus()
     }
 }
@@ -78,12 +78,12 @@ function validateDNI(dni){
             if (cad.charAt(longitud - 1) == total) {
                 postService();
             } else {
-                alert('Incorrect DNI')
+                alert('Cédula incorrecta')
                 document.getElementById('dni').focus();
             }
         }
     }else{
-        alert('Incorrect DNI')
+        alert('Cédula incorrecta')
         document.getElementById('dni').focus()
     }
 }
@@ -153,9 +153,6 @@ function cargar(){
                     <td>${service.servDest}</td>
                     <td>${service.servCost}</td>
                     <td>${service.servDistance}</td>
-                    <td><a data-toggle='tooltip' data-placement='top' title='Update' style='margin-right:5px' class='btn btn-success btn-sm'>
-                    <i class="material-icons">build</i>
-                    </a></td>
                 </tr>
                 `;
                 
@@ -180,9 +177,27 @@ function getDistance(){
             elements = row.elements;
             var elem = elements[0];
             var distance = elem.distance.text;
+            var km = elem.distance.value;
+            setCost(km);
             $('#result').val(distance);
         })
     
 
     
+}
+
+function setCost(km){
+    var cost;
+    if(km < 10000){
+        cost = 30;
+    }else if(km>= 10000 && km< 20000){
+        cost = 50;
+    }else if(km>= 20000 && km< 40000){
+        cost = 70;
+    }else if(km>= 40000 && km<= 80000){
+        cost = 90;
+    }else{
+        cost = 140;
+    }
+    $('#total').val(cost);
 }
