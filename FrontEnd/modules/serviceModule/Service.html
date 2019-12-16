@@ -31,22 +31,22 @@
     </nav>
     <div class="container">
         <div class="py-5 text-center">
-            <h2><b>Agregar Servicio</b></h2>
+            <h2><b>Add Service</b></h2>
         </div>
         <form id="formService">
             <div class="row">
                 <div class="col-md-4 order-md-2 card">
                     <div class="card-header">
                         <h4 class=" align-items-center">
-                            <span class="text-muted"><p>Valor a pagar:</p></span>
+                            <span class="text-muted"><p>Total:</p></span>
                         </h4>
                     </div>
                     <div class="card-body">
                         <ul class="list-group mb-4">
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div class="col-sm-4">
-                                    <h6 class="my-0">Datos del Cliente</h6>
-                                    <small class="text-muted">Cédula</small>
+                                    <h6 class="my-0">Client Data</h6>
+                                    <small class="text-muted">DNI</small>
                                 </div>
                                 <div class="">
                                     <div class="col-sm-12">
@@ -66,7 +66,7 @@
                             <li class="list-group-item bg-light">
                                 <center>
                                     <button class="btn btn-success btn-lg" id="save" type="button" onclick="validateService()">
-                                        Agregar Servicio
+                                        Add Service
                                     </button>
                                 </center>
 
@@ -78,18 +78,18 @@
                 <div class="col-md-8 order-mb-1">
 
                     <form class="needs-validation">
-                        <h4 class="mb-3">Datos vehiculo</h4>
+                        <h4 class="mb-3">Vehicle Data</h4>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="brand">Marca</label>
+                                <label for="brand">Brand</label>
                                 <input type="text" class="form-control" id="brand" placeholder="Kia" value="" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="model">Modelo</label>
+                                <label for="model">Model</label>
                                 <input type="text" class="form-control" id="model" placeholder="Cerato" value="" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="plate">Placa</label>
+                                <label for="plate">Plate</label>
                                 <input type="text" class="form-control" id="plate" placeholder="PBC-8489" value="" required>
                             </div>
 
@@ -97,38 +97,38 @@
                             <div class="col-md-6 mb-3">
                                 <label for="model">Color</label>
                                 <select id="color" name="color" class="form-control">
-                                    <option value="" class="dark">Escoja un color: </option>
-                                    <option value="Azul">Azul</option>
-                                    <option value="Negro">Negro/option>
-                                    <option value="Blanco">Blanco/option>
-                                    <option value="Rojo">Rojo</option>
-                                    <option value="Plateado">Plateado</option>
-                                    <option value="Verde">Verde</option>
+                                    <option value="" class="dark">Choose a color </option>
+                                    <option value="Blue">Blue</option>
+                                    <option value="Black">Black/option>
+                                    <option value="White">White/option>
+                                    <option value="Red">Red</option>
+                                    <option value="Silver">Silver</option>
+                                    <option value="Green">Green</option>
                                 </select>
                             </div>
                         </div>
 
-                        <h4 class="mb-3">Datos del Servicio</h4>
+                        <h4 class="mb-3">Service Data</h4>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="origin">Origen</label>
+                                <label for="origin">Origin</label>
                                 <input class="form-control" type="text" name="origin" id="origin" placeholder="El Inca" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="">Destino</label>
+                                <label for="">Destiny</label>
                                 <input class="form-control" type="text" name="destiny" id="destiny" placeholder="Conocoto" required>
                             </div>
                             <div class="col-md-2 mb-3">
                                 <br>
-                                <button class="btn btn-md btn-primary" type="button" onclick="getDistance()">Calcular</button>
+                                <button class="btn btn-md btn-primary" type="button" onclick="getDistance()">Calculate</button>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="">Distancia</label>
+                                <label for="">Distance</label>
                                 <input class="form-control" type="text" name="result" id="result" readonly>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="">Fecha Servicio</label>
+                                <label for="">Service Date</label>
                                 <input class="form-control" type="date" name="service_date" id="service_date" required>
                             </div>
                         </div>
