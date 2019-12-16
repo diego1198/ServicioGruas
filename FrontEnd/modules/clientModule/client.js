@@ -1,5 +1,5 @@
 function cargar(){
-    const URLAPI = "http://localhost:8080/Crane/Clients";
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Clients";
     const container = document.getElementById('tableClient');
     let contentHTML = '';
     var i=0;
@@ -27,7 +27,7 @@ function cargar(){
 
 function clientById(){
     var id = document.getElementById('id');
-    const URLAPI = "http://localhost:8080/Crane/Clients/"+id;
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Clients/"+id;
     const container = document.getElementById('tableClient');
     let contentHTML = '';
     var i=0;

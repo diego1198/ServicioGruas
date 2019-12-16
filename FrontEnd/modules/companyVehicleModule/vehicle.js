@@ -1,5 +1,5 @@
 function cargar(){
-    const URLAPI = "http://localhost:8080/Crane/Vehicles";
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Vehicles";
     const container = document.getElementById('tableVehicle');
     let contentHTML = '';
     var i=0;
@@ -15,7 +15,7 @@ function cargar(){
                     <td>${vehicle.vehicleBrand}</td>
                     <td>${vehicle.vehicleModel}</td>
                     <td>${vehicle.vehicleColor}</td>
-                    <td>${vehicle.vehicleLicesePlate}</td>
+                    <td>${vehicle.vehicleLicensePlate}</td>
                     <td>${vehicle.vehicleType}</td>
                     <td><a data-toggle='tooltip' data-placement='top' title='Update' style='margin-right:5px' class='btn btn-success btn-sm'>
                     <i class="material-icons">build</i>
@@ -50,7 +50,7 @@ function registrar(){
             console.log(color);
             console.log(plate);
             console.log(type);
-            axios.get('http://localhost:8080/Crane/Vehicles/'+id+'/'+model+'/'+brand+'/'+color+'/'+plate+'/'+type)
+            axios.get('http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Vehicles'+id+'/'+model+'/'+brand+'/'+color+'/'+plate+'/'+type)
                     .then(function (response) {
                         // Log full response
                         console.log(response);

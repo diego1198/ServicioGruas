@@ -56,10 +56,10 @@
                                 <label for="color">Color</label>
                                 <select id="color" name="color" class="form-control">
                                     <option value="" class="dark">Choose a color</option>
-                                    <option value="BLUE">Blue</option>
-                                    <option value="BLACK">Black</option>
-                                    <option value="WHITE">White</option>
-                                    <option value="RED">Red</option>
+                                    <option value="AZUL">Blue</option>
+                                    <option value="NEGRO">Black</option>
+                                    <option value="BLANCO">White</option>
+                                    <option value="ROJO">Red</option>
                                 </select>
                             </div>
                     <div class="col-md-3 mb-3">
@@ -70,8 +70,9 @@
                             <label for="type">Type:</label>
                             <select id="type" name="type" class="form-control">
                                 <option value="" class="dark">Choose a type vehicle</option>
-                                <option value="CRANE">Crane</option>
+                                <option value="GRUA">Crane</option>
                                 <option value="CAMION">Truck</option>
+                                <option value="AUTOMOVIL">Truck</option>
                             </select>
                             <br>
                     </div>
@@ -124,7 +125,7 @@
             console.log(color);
             console.log(plate);
             console.log(type);
-            axios.get('http://localhost:8080/Crane/Vehicles/'+id+'/'+model+'/'+brand+'/'+color+'/'+plate+'/'+type)
+            axios.get('http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Vehicles/'+id+'/'+model+'/'+brand+'/'+color+'/'+plate+'/'+type)
                     .then(function (response) {
                         // Log full response
                         console.log(response);
