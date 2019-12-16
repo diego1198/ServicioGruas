@@ -150,3 +150,126 @@ function deleteOperator() {
     });
     alert('Operador agregado correctamente');
 }
+
+var A, B, F, A1, C, C1, D, D1, E, E1, G;
+
+
+/*obtiene el número de operadores que tienen el mismo tipo de licencia */
+function getNumberLicense() {
+
+
+
+    const URI_A = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/A";
+    fetch(URI_A)
+        .then(res => res.text())
+        .then((license) => {
+            A = license;
+        })
+    const URI_B = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/B";
+    fetch(URI_B)
+        .then(res => res.text())
+        .then((license) => {
+            B = license;
+        })
+
+    const URI_F = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/F";
+    fetch(URI_F)
+        .then(res => res.text())
+        .then((license) => {
+            F = license;
+        })
+
+    const URI_A1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/A1";
+    fetch(URI_A1)
+        .then(res => res.text())
+        .then((license) => {
+            A1 = license;
+        })
+
+    const URI_C = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/C";
+    fetch(URI_C)
+        .then(res => res.text())
+        .then((license) => {
+            C = license;
+        })
+
+    const URI_C1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/C1";
+    fetch(URI_C1)
+        .then(res => res.text())
+        .then((license) => {
+            C1 = license;
+        })
+
+    const URI_D = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/D";
+    fetch(URI_D)
+        .then(res => res.text())
+        .then((license) => {
+            D = license;
+        })
+
+    const URI_D1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/D1";
+    fetch(URI_D1)
+        .then(res => res.text())
+        .then((license) => {
+            D1 = license;
+        })
+
+    const URI_E = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/E";
+    fetch(URI_E)
+        .then(res => res.text())
+        .then((license) => {
+            E = license;
+        })
+
+    const URI_E1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/E1";
+    fetch(URI_E1)
+        .then(res => res.text())
+        .then((license) => {
+            E1 = license;
+        })
+
+
+    const URI_G = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/G";
+    fetch(URI_G)
+        .then(res => res.text())
+        .then((license) => {
+            G = license;
+        })
+
+    graphic();
+}
+
+function graphic() {
+    let myGraphic = document.getElementById("myGraphic").getContext("2d");
+    var chart = new Chart(myGraphic, {
+        type: "bar",
+        data: {
+            labels: ["Licencia tipo A", "Licencia Tipo B", "Licencia tipo F",
+                "Licencia tipo A1", "Licencia tipo C", "Licencia tipo C1", "Licencia tipo D",
+                "Licencia tipo D1", "Licencia tipo E", "Licencia tipo E1", "Licencia tipo G"
+            ],
+            datasets: [{
+                label: "Tipos de Liencias",
+                backgroundColor: ["#64FF33", "#FF8033", "#3342FF",
+                    "#D7DC47", "#17CC59", "#10BCDF", "#3C13F4",
+                    "#F413BD", "#13F4F4", "#1391F4", "#7D13F4"
+                ],
+                borderColor: "rgb(0,255,0)",
+                data: [parseInt(A), parseInt(B), parseInt(F),
+                    parseInt(A1), parseInt(C), parseInt(C1), parseInt(D),
+                    parseInt(D1), parseInt(E), parseInt(E1), parseInt(G)
+                ]
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+
+        }
+    })
+}
