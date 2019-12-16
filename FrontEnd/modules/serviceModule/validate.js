@@ -117,7 +117,7 @@ function postService(){
 
     jQuery.ajax({
         'type': 'POST',
-        'url': 'http://localhost:8080/Crane/Service',
+        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Service',
         'contentType': 'application/json',
         'data': JSON.stringify(service),
         'dataType': 'json'
@@ -131,7 +131,7 @@ function postService(){
 
 
 function cargar(){
-    const URLAPI = "http://localhost:8080/Crane/Service";
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Service";
     const container = document.getElementById('tableService');
     let contentHTML = '';
     var i=0;
