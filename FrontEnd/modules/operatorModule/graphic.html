@@ -43,6 +43,35 @@
             <h2> <b>Operator</b> </h2>
         </div>
 
+        <div>
+            <canvas id="myGraphic" width="400" height="200"></canvas>
+        </div>
+        <script>
+            let myGraphic = document.getElementById("myGraphic").getContext("2d");
+            var chart = new Chart(myGraphic, {
+                type: "bar",
+                data: {
+                    labels: ["Licencia tipo A", "Licencia Tipo B", "Licencia tipo C"],
+                    datasets: [{
+                        label: "Tipos de Liencias",
+                        backgroundColor: ["#64FF33", "#FF8033", "#3342FF"],
+                        borderColor: "rgb(0,255,0)",
+                        data: [50, 15, 30]
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+
+                }
+            })
+        </script>
+        <br>
 
         <div class="col-md-6 mb-3">
             <center>
