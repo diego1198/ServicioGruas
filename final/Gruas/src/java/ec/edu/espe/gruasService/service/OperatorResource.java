@@ -86,12 +86,12 @@ public class OperatorResource {
         return SetOperatorId(new Operator(operator.getOperatorId(), operator.getCraneManagerId(), operator.getOperatorName(), operator.getOperatorLastName(), operator.getOperatorLicense()));
     }
 
-    @DELETE
+   /* @DELETE
     @Produces(MediaType.TEXT_PLAIN)
-    @Path("{idOperator}")
+    @Path("/{idOperator}")
     public String deleteOperatorText(@PathParam("idOperator") String op) {
         return deleteOperatorId(op);
-    }
+    }*/
 
    
     /*FUNCIONES*/
