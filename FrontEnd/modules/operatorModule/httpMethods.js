@@ -1,7 +1,7 @@
 /*optiene todos los operadores asiganados a un administrador de grúa */
 function listOperatorByCraneManager() {
     var idCraneManager = document.getElementById('idCraneManager').value;
-    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/CraneManager/" + idCraneManager;
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/CraneManager/" + idCraneManager;
     const container = document.getElementById('tableOperator');
     let contentHTML = '';
     var i = 0;
@@ -28,7 +28,7 @@ function listOperatorByCraneManager() {
 function getOperadorByID() {
 
     var idOperator = document.getElementById('idOperator').value;
-    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/" + idOperator;
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/" + idOperator;
     const container = document.getElementById('tableOperator');
     let contentHTML = '';
     var i = 0;
@@ -57,7 +57,7 @@ function getOperadorByID() {
 
 /*lista todos los administradores de grúas registrados */
 function getCraneManager() {
-    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/CraneManager";
+    const URLAPI = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/CraneManager";
     const container = document.getElementById('cmid');
     let contentHTML = '';
     var i = 0;
@@ -99,7 +99,7 @@ function postOperator() {
     console.log(JSON.stringify(operator));
     return jQuery.ajax({
         'type': 'POST',
-        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator',
+        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator',
         'contentType': 'application/json',
         'data': JSON.stringify(operator),
         'dataType': 'json'
@@ -126,7 +126,7 @@ function putOperator() {
     console.log(JSON.stringify(operator));
     return jQuery.ajax({
         'type': 'PUT',
-        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator',
+        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator',
         'contentType': 'application/json',
         'data': JSON.stringify(operator),
         'dataType': 'json'
@@ -143,7 +143,7 @@ function deleteOperator() {
     console.log(JSON.stringify(operator));
     return jQuery.ajax({
         'type': 'DELETE',
-        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/',
+        'url': 'http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/',
         'contentType': 'application/json',
         'data': JSON.stringify(operator),
         'dataType': 'json'
@@ -159,69 +159,69 @@ function getNumberLicense() {
 
 
 
-    const URI_A = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/A";
+    const URI_A = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/A";
     fetch(URI_A)
         .then(res => res.text())
         .then((license) => {
             A = license;
         })
-    const URI_B = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/B";
+    const URI_B = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/B";
     fetch(URI_B)
         .then(res => res.text())
         .then((license) => {
             B = license;
         })
 
-    const URI_F = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/F";
+    const URI_F = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/F";
     fetch(URI_F)
         .then(res => res.text())
         .then((license) => {
             F = license;
         })
 
-    const URI_A1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/A1";
+    const URI_A1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/A1";
     fetch(URI_A1)
         .then(res => res.text())
         .then((license) => {
             A1 = license;
         })
 
-    const URI_C = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/C";
+    const URI_C = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/C";
     fetch(URI_C)
         .then(res => res.text())
         .then((license) => {
             C = license;
         })
 
-    const URI_C1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/C1";
+    const URI_C1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/C1";
     fetch(URI_C1)
         .then(res => res.text())
         .then((license) => {
             C1 = license;
         })
 
-    const URI_D = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/D";
+    const URI_D = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/D";
     fetch(URI_D)
         .then(res => res.text())
         .then((license) => {
             D = license;
         })
 
-    const URI_D1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/D1";
+    const URI_D1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/D1";
     fetch(URI_D1)
         .then(res => res.text())
         .then((license) => {
             D1 = license;
         })
 
-    const URI_E = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/E";
+    const URI_E = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/E";
     fetch(URI_E)
         .then(res => res.text())
         .then((license) => {
             E = license;
         })
 
-    const URI_E1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/E1";
+    const URI_E1 = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/E1";
     fetch(URI_E1)
         .then(res => res.text())
         .then((license) => {
@@ -229,7 +229,7 @@ function getNumberLicense() {
         })
 
 
-    const URI_G = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/service/Operator/G";
+    const URI_G = "http://ec2-18-220-223-91.us-east-2.compute.amazonaws.com:8080/Gruas/beta/Operator/G";
     fetch(URI_G)
         .then(res => res.text())
         .then((license) => {
