@@ -1,34 +1,46 @@
 package com.example.servigruas;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button aceptarLogin;
+    private Button btnLogin;
     private  EditText txtUsu, txtPass;
+    private  Funciones connexion = new Funciones();
+    private ConnectivityManager connec;
+    private Boolean esDatos;
+    private Boolean  esWifi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //Enlaces con elementos visuales
+
+        //enlaza la parte gráfica con el código
         txtUsu = (EditText)findViewById(R.id.txtUsuario);
         txtPass = (EditText)findViewById(R.id.txtContraseña);
-        aceptarLogin = findViewById(R.id.btnIngresarLogin); //enlaza la parte gráfica con el código
+        btnLogin = findViewById(R.id.btnIngresarLogin);
 
         //Listener de los botones
-        aceptarLogin.setOnClickListener( this); //habilita el evento onclicklistener
+        //habilita el evento onclicklistener
+        btnLogin.setOnClickListener( this);
+
+        //comprobar conexion
+         connec = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+         esDatos = connec.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnectedOrConnecting();
+         esWifi= connec.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting();
+
 
     }
 
@@ -39,6 +51,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view)
     {
 
+        if (esDatos||esWifi) {
+            Intent i = new Intent(getApplicationContext(), Main2Activity.class);
+            //putExtra --> envia datos de un activity a otro (nombrevariable,valor de la variable)
+            i.putExtra("CI_OPERADOR",txtUsu.getText().toString());
+            startActivity(i);
+            finish();
+        }else {
+            Toast.makeText(getBaseContext(),"Necesaria conexión a internet ", Toast.LENGTH_SHORT).show();
+        }
     }
-
 }
