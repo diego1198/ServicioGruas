@@ -3,6 +3,7 @@ package ec.edu.espe.craneapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 
 public class Operator extends AppCompatActivity {
@@ -13,6 +14,9 @@ public class Operator extends AppCompatActivity {
         setContentView(R.layout.activity_operator);
 
     }
+
+
+
 
 
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Operator"> // tools:context -->en que activity va aparecer el menu
+
+    <item android:id="@+id/idUpdate"
+        android:title="Update">
+    </item>
+    <item android:id="@+id/idList"
+        android:title="List">
+    </item>
+    <item android:id="@+id/idHome"
+        android:title="Home">
+    </item>
+
+</menu>
