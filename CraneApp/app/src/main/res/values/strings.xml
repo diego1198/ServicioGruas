@@ -2,4 +2,7 @@
     <string name="app_name">CraneApp</string>
     <string name="menu">menu</string>
     <string name="operator">operator</string>
+    <string name="operatorUpdateActivity">operatorUpdateActivity</string>
+    <string name="operatorListActivity">operatorListActivity</string>
+
 </resources>
