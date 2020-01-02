@@ -4,5 +4,19 @@
     <string name="operator">operator</string>
     <string name="operatorUpdateActivity">operatorUpdateActivity</string>
     <string name="operatorListActivity">operatorListActivity</string>
+    <string-array  name="Spinner_items">
+        <item>SELECT A LICENSE</item>
+        <item>A</item>
+        <item>B</item>
+        <item>F</item>
+        <item>A1</item>
+        <item>C</item>
+        <item>C1</item>
+        <item>D</item>
+        <item>D1</item>
+        <item>E1</item>
+        <item>G</item>
+
+    </string-array>
 
 </resources>

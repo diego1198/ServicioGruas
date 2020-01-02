@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Operator">
+    tools:context=".OperatorActivity">
 
 
     <LinearLayout
@@ -110,6 +110,12 @@
                         android:text="" />
                 </LinearLayout>
 
+
+
+
+
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -125,12 +131,14 @@
                         android:textColor="@android:color/black"
                         android:textSize="15dp"
                         android:textStyle="bold" />
+                    <Spinner
+                        android:id="@+id/aSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/Spinner_items">
 
-                    <EditText
-                        android:id="@+id/idDriverLicense"
-                        android:layout_width="281dp"
-                        android:layout_height="wrap_content"
-                        android:text="" />
+                    </Spinner>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -149,11 +157,11 @@
                         android:textSize="15dp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/idCraneManager"
-                        android:layout_width="283dp"
-                        android:layout_height="wrap_content"
-                        android:text="" />
+                    <Spinner
+                        android:id="@+id/spinnerCraneManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Spinner>
                 </LinearLayout>
 
 
@@ -217,6 +225,7 @@
             app:fab_colorNormal="@color/colorPrimaryDark"
             app:fab_icon="@drawable/usuarioregistrados"
             app:fab_size="normal"/>
+
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/idIrActualizarOperator"
             android:layout_width="wrap_content"
