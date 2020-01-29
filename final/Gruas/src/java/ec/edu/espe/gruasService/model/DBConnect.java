@@ -16,11 +16,10 @@ import java.sql.SQLException;
 public class DBConnect {
 
     String bd = "gruas";
-    /*String url = "jdbc:mysql://35.202.170.59:3306/" + bd;*/
-    String url = "jdbc:mysql://localhost:3306/" + bd;
-    String user = "root";
-    /*String pass = "qwer1234";*/
-    String pass = "";
+    String url = "jdbc:mysql://database-1.ccymjhqwynxs.us-east-2.rds.amazonaws.com:3306/" + bd;
+    /*String url = "jdbc:mysql://localhost:3306/" + bd;*/
+    String user = "admin";
+    String pass = "admin123456";
     Connection connection = null;
 
     public DBConnect() {

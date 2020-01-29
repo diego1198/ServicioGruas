@@ -35,6 +35,7 @@ public class ApplicationConfig extends javax.ws.rs.core.Application {
         resources.add(ec.edu.espe.gruasService.service.ReportResource.class);
         resources.add(ec.edu.espe.gruasService.service.ServiceResource.class);
         resources.add(ec.edu.espe.gruasService.service.UpdateLicenseVehicleResource.class);
+        resources.add(ec.edu.espe.gruasService.service.UserResource.class);
     }
     
 }
